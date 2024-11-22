@@ -30,21 +30,25 @@ class AuthScreenState extends State<AuthScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('ورود یا ثبت نام'),
+                  Text('ورود یا ثبت نام', style: Theme.of(context).),
                   Text('جهت ورود به شهید نشان شماره موبایل خود را وارد کنید '),
                   SizedBox(height: 10,),
                   TextField(
                     controller: numberController,
                   ),
-                  ElevatedButton(onPressed: (){}, child: Text('ورود'))
+                  ElevatedButton(
+                    onPressed: (){}, 
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, 10),
+                    ),
+                    child: Text('ورود'))
                 ],
               ),
             ),
           ),
           Expanded(
             child: Container(
-              
-              padding: const EdgeInsets.only(left: 10, right: 10 , top:5),
+              padding: const EdgeInsets.only(top:5),
               child: GridView.builder(
               itemCount: 12,
               shrinkWrap: true,

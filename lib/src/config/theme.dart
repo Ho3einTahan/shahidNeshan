@@ -1,34 +1,32 @@
-
 import 'package:flutter/material.dart';
-import 'package:shahid_neshan/src/core/constans/colors.dart';
 
-
-
-
-class CustomeTheme { 
-  
-  static  ThemeData theme = ThemeData(
-    primaryColor: kPrimaryColor,
-    scaffoldBackgroundColor:  kBackgroundColor,
-    highlightColor: const Color(0xFFFFAB00),
+class CustomTheme {
+  static ThemeData theme = ThemeData(
+    primaryColor: const Color(0xFF074B87),
+    scaffoldBackgroundColor: const Color(0xFFF7F7F7),
+    fontFamily: 'Dana',
     colorScheme: const ColorScheme(
-      primary:  kPrimaryColor,
-      secondary:  kSecondaryColor,
-      surface:  Color(0xFFFFFFFF),
-      error:  Color(0xFFF64E34),
+      primary: Color(0xFF074B87),
+      secondary: Color(0xFFD1B490),
+      surface: Color(0xFFFFFFFF),
+      error: Color(0xFFF64E34),
       onPrimary: Colors.white,
       onSecondary: Colors.black,
       onSurface: Colors.black,
       onError: Colors.white,
-      brightness:  Brightness.light,
+      brightness: Brightness.light,
+      background: Colors.transparent,
+      onBackground: Colors.transparent,
     ),
-    appBarTheme: appBarTheme
+    highlightColor: const Color(0xFFFFAB00),
+    textTheme: const TextTheme(
+      bodySmall: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w100),
+      displaySmall: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w300),
+      displayMedium: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w400),
+      bodyMedium: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w500),
+      displayLarge: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w600),
+      bodyLarge: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w700),
+      labelLarge: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w800),
+    ),
   );
-
-  
-
-  static AppBarTheme appBarTheme = AppBarTheme(
-    backgroundColor:  kBackgroundColor
-  );
-
 }

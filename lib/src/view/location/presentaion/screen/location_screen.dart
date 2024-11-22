@@ -3,7 +3,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'dart:ui' as ui;
-import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
 import 'package:shahid_neshan/src/view/location/data/model/martyr_model.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -14,7 +13,6 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-
   final MapController mapController = MapController();
   late List<Marker> markers;
 
@@ -69,5 +67,4 @@ class _LocationScreenState extends State<LocationScreen> {
       ],
     ),
   );
-
 }
