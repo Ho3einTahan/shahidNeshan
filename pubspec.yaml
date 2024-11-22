@@ -17,6 +17,8 @@ dependencies:
   google_mlkit_text_recognition: ^0.14.0
   flutter_tesseract_ocr: ^0.4.24
   cupertino_icons: ^1.0.2
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
 
 dev_dependencies:
   flutter_test:

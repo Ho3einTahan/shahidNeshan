@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_tesseract_ocr/flutter_tesseract_ocr.dart';
 import 'package:path_provider/path_provider.dart';
-import 'core/function/copyTessDataToAppDirectory.dart';
-import 'core/function/preloadAssets.dart';
+import 'package:shahid_neshan/src/core/function/copyTessDataToAppDirectory.dart';
+import 'package:shahid_neshan/src/core/function/preloadAssets.dart';
 
 
 void main() async{
