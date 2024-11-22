@@ -41,8 +41,26 @@ flutter:
     - assets/icon/
 
   fonts:
-    - family: Dana
-      fonts:
-        - asset: fonts/DANA-MEDIUM.TTF
-        - asset: fonts/DANA-BOLD.TTF
-          style: italic
+      - family: Dana
+        fonts:
+          - asset: fonts/DANA-MEDIUM.TTF
+            style: normal
+            weight: 500
+          - asset: fonts/DANA-BLACK.TTF
+            style: normal
+            weight: 600
+          - asset: fonts/DANA-BOLD.TTF
+            style: normal
+            weight: 700
+          - asset: fonts/DANA-EXTRABOLD.TTF
+            style: normal
+            weight: 800
+          - asset: fonts/DANA-EXTRALIGHT.TTF
+            style: normal
+            weight: 100
+          - asset: fonts/DANA-LIGHT.TTF
+            style: normal
+            weight: 300
+          - asset: fonts/DANA-REGULAR.TTF
+            style: normal
+            weight: 400
