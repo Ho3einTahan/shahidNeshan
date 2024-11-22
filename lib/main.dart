@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_tesseract_ocr/flutter_tesseract_ocr.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shahid_neshan/src/config/get_it.dart';
 import 'package:shahid_neshan/src/core/function/copyTessDataToAppDirectory.dart';
 import 'package:shahid_neshan/src/core/function/preloadAssets.dart';
+import 'package:shahid_neshan/src/core/utils/bloc_providers.dart';
 
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await preloadAssets();
   await copyTessdataToAppDirectory();
-  runApp(const MyApp());
+  await GetItDP.setUpGetIt();
+  runApp( blocProviders(const MyApp()) );
 }
 
 class MyApp extends StatelessWidget {
