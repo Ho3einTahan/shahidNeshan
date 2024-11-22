@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
-=======
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'dart:ui' as ui;
-import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
 import 'package:shahid_neshan/src/view/location/data/model/martyr_model.dart';
 
 class LocationScreen extends StatefulWidget {
@@ -17,22 +13,6 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-<<<<<<< HEAD
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Text('sl'),
-          onPressed: (){
-            // context.navigate(widget);
-          },
-        ),
-      ),
-    );
-  }
-=======
-
   final MapController mapController = MapController();
   late List<Marker> markers;
 
@@ -87,6 +67,4 @@ class _LocationScreenState extends State<LocationScreen> {
       ],
     ),
   );
-
->>>>>>> 4adf7973c527baa32e95ae564d73abed37738755
 }
