@@ -1,86 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:flutter_tesseract_ocr/flutter_tesseract_ocr.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:shahid_neshan/src/config/get_it.dart';
-import 'package:shahid_neshan/src/core/function/copyTessDataToAppDirectory.dart';
-import 'package:shahid_neshan/src/core/function/preloadAssets.dart';
-import 'package:shahid_neshan/src/core/utils/bloc_providers.dart';
+import 'package:image_picker/image_picker.dart';
 
-
-void main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-  await preloadAssets();
-  await copyTessdataToAppDirectory();
-  await GetItDP.setUpGetIt();
-  runApp( blocProviders(const MyApp()) );
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), useMaterial3: true),
-      home: TesseractOCRExample(),
+      home: OCRScreen(),
     );
   }
 }
 
-
-
-class TesseractOCRExample extends StatefulWidget {
+class OCRScreen extends StatefulWidget {
   @override
-  _TesseractOCRExampleState createState() => _TesseractOCRExampleState();
+  _OCRScreenState createState() => _OCRScreenState();
 }
 
-class _TesseractOCRExampleState extends State<TesseractOCRExample> {
-  String recognizedText = 'هیچ متنی شناسایی نشد!';
-  final ImagePicker _picker = ImagePicker();
+class _OCRScreenState extends State<OCRScreen> {
+  String _text = "متن استخراج‌شده در اینجا نمایش داده می‌شود";
+  final picker = ImagePicker();
 
-  Future<void> recognizeText() async {
-    final XFile? imageFile = await _picker.pickImage(source: ImageSource.camera);
+  Future<void> extractText() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.camera);
+    if (pickedFile == null) return;
 
-    if (imageFile == null) return;
-
-    try {
-      final text = await FlutterTesseractOcr.extractText(
-        imageFile.path,
-        language: 'fas',
-        args: {
-          "tessdata": "${(await getApplicationSupportDirectory()).path}/tessdata",
-          "language": "fas",
-        },
-      );
-      print('متن استخراج شده: $text');
-      setState(() {
-        recognizedText = text.isNotEmpty ? text : 'هیچ متنی شناسایی نشد!';
-      });
-    } catch (e, stacktrace) {
-      print('خطا: $e');
-      print('جزئیات خطا: $stacktrace');
-      setState(() {
-        recognizedText = 'خطا در شناسایی متن: $e';
-      });
-    }
-
+    String extractedText = await FlutterTesseractOcr.extractText(pickedFile.path, language: 'fas');
+    setState(() {
+      _text = extractedText.isEmpty ? "متنی یافت نشد" : extractedText;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Tesseract OCR')),
-      body: SingleChildScrollView(
+      appBar: AppBar(title:const Text("OCR فارسی")),
+      body: Center(
         child: Column(
-          children: [
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
             ElevatedButton(
-              onPressed: recognizeText,
-              child: const Text('انتخاب تصویر'),
+              onPressed: extractText,
+              child: Text("انتخاب تصویر و استخراج متن"),
             ),
-            const SizedBox(height: 20),
-            Center(child: Text(recognizedText)),
+            SizedBox(height: 20),
+            Text(_text, textAlign: TextAlign.center, style: TextStyle(fontSize: 18)),
           ],
         ),
       ),
