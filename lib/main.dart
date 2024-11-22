@@ -51,16 +51,21 @@ class _TesseractOCRExampleState extends State<TesseractOCRExample> {
         language: 'fas',
         args: {
           "tessdata": "${(await getApplicationSupportDirectory()).path}/tessdata",
+          "language": "fas",
         },
       );
+      print('متن استخراج شده: $text');
       setState(() {
         recognizedText = text.isNotEmpty ? text : 'هیچ متنی شناسایی نشد!';
       });
-    } catch (e) {
+    } catch (e, stacktrace) {
+      print('خطا: $e');
+      print('جزئیات خطا: $stacktrace');
       setState(() {
         recognizedText = 'خطا در شناسایی متن: $e';
       });
     }
+
   }
 
   @override
