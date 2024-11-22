@@ -37,13 +37,13 @@ flutter:
     - assets/tessdata/
     - assets/tessdata_config.json
     - assets/icon/
+    - assets/images/
 
   fonts:
     - family: Dana
       fonts:
-        - asset: fonts/DANA-MEDIUM.TTF
-        - asset: fonts/DANA-BOLD.TTF
-          style: italic
+        - asset: assets/fonts/data_medium.ttf
+        - asset: assets/fonts/data_bold.ttf
     # - family: Trajan Pro
     #   fonts:
     #     - asset: fonts/TrajanPro.ttf

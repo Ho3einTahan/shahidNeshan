@@ -6,6 +6,7 @@ import 'package:shahid_neshan/src/config/get_it.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
 import 'package:shahid_neshan/src/core/function/copyTessDataToAppDirectory.dart';
 import 'package:shahid_neshan/src/core/function/preloadAssets.dart';
+import 'package:shahid_neshan/src/view/auth/presentation/screen/auth_screen.dart';
 import 'package:shahid_neshan/src/core/utils/bloc_providers.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/screen/location_screen.dart';
 
@@ -27,7 +28,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: CustomeTheme.theme,
       // home: TesseractOCRExample(),
-      // home: LocationScreen(),
+      home: Directionality(
+        textDirection: TextDirection.rtl,
+        child: AuthScreen()),
     );
   }
 }

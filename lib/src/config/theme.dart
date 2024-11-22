@@ -1,14 +1,19 @@
 
 import 'package:flutter/material.dart';
+import 'package:shahid_neshan/src/core/constans/colors.dart';
+
+
+
 
 class CustomeTheme { 
   
   static  ThemeData theme = ThemeData(
-    primaryColor: const Color(0xFF074B87),
-    scaffoldBackgroundColor: const Color(0xFFF7F7F7),
+    primaryColor: kPrimaryColor,
+    scaffoldBackgroundColor:  kBackgroundColor,
+    highlightColor: const Color(0xFFFFAB00),
     colorScheme: const ColorScheme(
-      primary:  Color(0xFF074B87),
-      secondary:  Color(0xFFD1B490),
+      primary:  kPrimaryColor,
+      secondary:  kSecondaryColor,
       surface:  Color(0xFFFFFFFF),
       error:  Color(0xFFF64E34),
       onPrimary: Colors.white,
@@ -17,8 +22,13 @@ class CustomeTheme {
       onError: Colors.white,
       brightness:  Brightness.light,
     ),
-    // errorColor: Color(0xFFF64E34),
-    highlightColor: const Color(0xFFFFAB00),
+    appBarTheme: appBarTheme
+  );
+
+  
+
+  static AppBarTheme appBarTheme = AppBarTheme(
+    backgroundColor:  kBackgroundColor
   );
 
 }
