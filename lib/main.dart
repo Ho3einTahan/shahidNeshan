@@ -3,6 +3,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter_tesseract_ocr/flutter_tesseract_ocr.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shahid_neshan/src/config/get_it.dart';
+import 'package:shahid_neshan/src/config/theme.dart';
 import 'package:shahid_neshan/src/core/function/copyTessDataToAppDirectory.dart';
 import 'package:shahid_neshan/src/core/function/preloadAssets.dart';
 import 'package:shahid_neshan/src/core/utils/bloc_providers.dart';
@@ -14,7 +15,8 @@ void main() async{
   await preloadAssets();
   await copyTessdataToAppDirectory();
   await GetItDP.setUpGetIt();
-  runApp( blocProviders(const MyApp()) );
+  // runApp( blocProviders(const MyApp()) );
+  runApp(const MyApp() );
 }
 
 class MyApp extends StatelessWidget {
@@ -23,10 +25,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), useMaterial3: true),
+      theme: CustomeTheme.theme,
       // home: TesseractOCRExample(),
-      home: LocationScreen(),
+      // home: LocationScreen(),
     );
   }
 }
