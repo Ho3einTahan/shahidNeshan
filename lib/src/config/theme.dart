@@ -15,7 +15,7 @@ class CustomTheme {
       onSurface: Colors.black,
       onError: Colors.white,
       brightness: Brightness.light,
-      background: Colors.transparent,
+      background: Color(0xffF7F7F7),
       onBackground: Colors.transparent,
     ),
     highlightColor: const Color(0xFFFFAB00),
