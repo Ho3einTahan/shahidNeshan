@@ -7,10 +7,11 @@ class CustomTheme {
     fontFamily: 'Dana',
     colorScheme: const ColorScheme(
       primary: Color(0xFF074B87),
+      secondaryContainer: Color(0xff5A87AF),
       secondary: Color(0xFFD1B490),
       surface: Color(0xFFFFFFFF),
       error: Color(0xFFF64E34),
-      onPrimary: Colors.white,
+      onPrimary: Color(0xffCDDBE7),
       onSecondary: Colors.black,
       onSurface: Colors.black,
       onError: Colors.white,
