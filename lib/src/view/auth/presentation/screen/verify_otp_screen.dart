@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../config/theme.dart';
-import '../../../widget/tools_methode.dart';
+import '../widget/tools_methode.dart';
 
 class VerifyOtpScreen extends StatelessWidget {
   const VerifyOtpScreen({super.key});

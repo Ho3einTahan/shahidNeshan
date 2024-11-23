@@ -20,7 +20,7 @@ class _LocationScreenState extends State<LocationScreen> {
   void initState() {
     super.initState();
     markers = [
-      // Marker(point: const LatLng(33.98308 ,51.43644), child: markerWidget())
+      Marker(point: const LatLng(33.98308 ,51.43644), child: markerWidget(MartyrModel('hossein ', "")))
     ];
   }
   
@@ -37,7 +37,9 @@ class _LocationScreenState extends State<LocationScreen> {
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             maxNativeZoom: 12,
           ),
-          MarkerLayer( markers: markers)
+          MarkerLayer( markers: [
+            Marker(point: const LatLng(33.98308 ,51.43644), child: markerWidget(MartyrModel('hossein ', "")))
+          ])
           ] ),
     );
   }
@@ -49,8 +51,8 @@ class _LocationScreenState extends State<LocationScreen> {
       children: [
         SvgPicture.asset("assets/icon/marker.svg", fit: BoxFit.cover,width: 70 ,height: 70 ),
         Container(
-          width:  40,
-          height: 40,
+          width:  50,
+          height: 50,
           margin: const EdgeInsets.only(left: 5, top: 5),
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
