@@ -4,7 +4,9 @@ import '../../../../config/theme.dart';
 import '../../../widget/tools_methode.dart';
 
 class VerifyOtpScreen extends StatelessWidget {
-  const VerifyOtpScreen({super.key});
+  VerifyOtpScreen({super.key});
+
+  final TextEditingController otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +39,12 @@ class VerifyOtpScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
+                      spacing: 20,
+                      runSpacing: 10,
                       alignment: WrapAlignment.end,
                       children: [
-                        ...List.generate(10, (index) => buildVirtualKeyboard(context, ((index + 1) % 10).toString())),
-                        buildVirtualKeyboardRemoveButton(),
+                        ...List.generate(10, (index) => buildVirtualKeyboard(context, ((index + 1) % 10).toString(), otpController)),
+                        buildVirtualKeyboardRemoveButton(context, otpController),
                       ],
                     ),
                   ),
@@ -56,33 +58,25 @@ class VerifyOtpScreen extends StatelessWidget {
   }
 
   Widget _buildOtpTextField() {
-    return Container(
-      height: 52,
-      margin: const EdgeInsets.only(top: 40, bottom: 24),
-      padding: const EdgeInsets.only(bottom: 22),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: List.generate(5, (index) {
-            return const SizedBox(
-              width: 48,
-              child: TextField(
-                readOnly: true,
-                textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                    counterText: '',
-                    border: UnderlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                    enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                    focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue))),
-                keyboardType: TextInputType.number,
-                maxLength: 1,
-              ),
-            );
-          }),
+    return Center(
+      child: Container(
+        height: 52,
+        margin: const EdgeInsets.only(top: 40, bottom: 24),
+        alignment: Alignment.center,
+        child: TextField(
+          controller: otpController,
+          readOnly: true,
+          textAlignVertical: TextAlignVertical.bottom,
+          style: const TextStyle(fontSize: 20),
+          decoration: const InputDecoration(
+            hintText: 'کد تایید',
+            hintStyle: TextStyle(fontSize: 16),
+            hintTextDirection: TextDirection.rtl,
+            border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+          ),
+          keyboardType: TextInputType.number,
         ),
       ),
     );
