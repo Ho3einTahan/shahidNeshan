@@ -42,13 +42,13 @@ flutter:
   fonts:
       - family: Dana
         fonts:
-          - asset: assets/fonts/DANA_MEDIUM.ttf
+          - asset: assets/fonts/dana_medium.ttf
             style: normal
             weight: 500
           - asset: assets/fonts/DANA_BLACK.ttf
             style: normal
             weight: 600
-          - asset: assets/fonts/DANA_BOLD.ttf
+          - asset: assets/fonts/dana_bold.ttf
             style: normal
             weight: 700
           - asset: assets/fonts/DANA_EXTRABOLD.ttf
