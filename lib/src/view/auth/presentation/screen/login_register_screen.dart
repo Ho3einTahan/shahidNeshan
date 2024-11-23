@@ -53,8 +53,8 @@ class LoginRegisterScreen extends StatelessWidget {
                       runSpacing: 8,
                       alignment: WrapAlignment.end,
                       children: [
-                        ...List.generate(10, (index) => buildVirtualKeyboard(context, ((index + 1) % 10).toString())),
-                        buildVirtualKeyboardRemoveButton(),
+                        ...List.generate(10, (index) => buildVirtualKeyboard(context, ((index + 1) % 10).toString(),[])),
+                        buildVirtualKeyboardRemoveButton(context, []),
                       ],
                     ),
                   ),
