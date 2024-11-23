@@ -22,6 +22,7 @@ dependencies:
   dio: ^5.7.0
   get_it: ^8.0.2
   latlong2: ^0.9.1
+  smooth_page_indicator: ^1.2.0+3
   geolocator: ^11.1.0
   flutter_svg: ^2.0.10
 
@@ -31,35 +32,34 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
-
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
+    - images/
     - assets/icon/
     - assets/images/
 
   fonts:
       - family: Dana
         fonts:
-          - asset: assets/fonts/dana_medium.ttf
+          - asset: fonts/DANA-MEDIUM.TTF
             style: normal
             weight: 500
-          - asset: assets/fonts/DANA_BLACK.ttf
+          - asset: fonts/DANA-BLACK.TTF
             style: normal
             weight: 600
-          - asset: assets/fonts/dana_bold.ttf
+          - asset: fonts/DANA-BOLD.TTF
             style: normal
             weight: 700
-          - asset: assets/fonts/DANA_EXTRABOLD.ttf
+          - asset: fonts/DANA-EXTRABOLD.TTF
             style: normal
             weight: 800
-          - asset: assets/fonts/DANA_EXTRALIGHT.ttf
+          - asset: fonts/DANA-EXTRALIGHT.TTF
             style: normal
             weight: 100
-          - asset: assets/fonts/DANA_LIGHT.ttf
+          - asset: fonts/DANA-LIGHT.TTF
             style: normal
             weight: 300
-          - asset: assets/fonts/DANA_REGULAR.ttf
+          - asset: fonts/DANA-REGULAR.TTF
             style: normal
             weight: 400
