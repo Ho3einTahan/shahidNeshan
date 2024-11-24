@@ -10,7 +10,8 @@ class StoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StoryPageView(
-        indicatorVisitedColor: Colors.grey,
+        indicatorVisitedColor: Colors.white,
+        indicatorUnvisitedColor: Colors.grey,
         itemBuilder: (context, pageIndex, storyIndex) {
           return Stack(
             children: <Widget>[
