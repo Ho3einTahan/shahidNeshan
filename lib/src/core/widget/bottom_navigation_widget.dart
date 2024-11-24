@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shahid_neshan/src/view/around/presentaion/screen/around_screen.dart';
 import 'package:shahid_neshan/src/view/explore/presentaion/screen/explore_screen.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/screen/home_screen.dart';
+import 'package:shahid_neshan/src/view/location/presentaion/screen/location_screen.dart';
 import 'package:shahid_neshan/src/view/profile/presentaion/screen/profile_screen.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
@@ -17,7 +17,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   
   int _selected = 0;
   
-  final List<Widget> screens = const [ HomeScreen(), ExploreScreen(), AroundScreen(), ProfileScreen() ];
+  final List<Widget> screens = const [ HomeScreen(), ExploreScreen(), LocationScreen(), ProfileScreen() ];
   final List<String> titles = [ 'خانه', 'کاوش', 'اطراف من', 'حساب' ];
   final List<String> icons = ['home.svg', 'heart.svg', 'local.svg', 'user.svg'];
 

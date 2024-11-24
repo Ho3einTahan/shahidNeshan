@@ -75,23 +75,23 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   margin: const EdgeInsets.only(top: 24),
                   child: headerTitleWidget(context, true, Sizes.width(context), "به نیت شهدا...")),
                 const SizedBox(height: 15,),
-                SizedBox(
-                  height: Sizes.height(context)*0.44,
-                  child: ListView.builder(
-                    itemCount: 2,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) => const CommentCardWidget()
-                  ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 2,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => const CommentCardWidget()
                 )
               ],
             ),
+            const SizedBox(height: 50,)
           ],
         ),
       ),

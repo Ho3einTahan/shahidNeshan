@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/get_it.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
-import 'package:shahid_neshan/src/view/help/presentation/screen/helpToKheyrie_screen.dart';
-import 'package:shahid_neshan/src/view/home/presentaion/screen/story-screen.dart';
+import 'package:shahid_neshan/src/core/widget/bottom_navigation_widget.dart';
+import 'package:shahid_neshan/src/view/location/presentaion/screen/location_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +18,9 @@ class Application extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.theme,
-      home: HelpToKheyrieScreen(),
+      home: Directionality(
+        textDirection: TextDirection.rtl,
+        child: const BottomNavigationWidget()),
     );
   }
 }

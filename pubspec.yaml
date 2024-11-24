@@ -24,6 +24,7 @@ dependencies:
   story: ^1.1.0
   geolocator: ^11.1.0
   flutter_svg: ^2.0.10
+  win32: ^5.8.0
 
 dev_dependencies:
   flutter_test:

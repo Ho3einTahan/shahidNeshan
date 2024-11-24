@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CommentCardWidget extends StatelessWidget {
-  const CommentCardWidget({super.key});
+  final List<String> images;
+  const CommentCardWidget({super.key, required this.images});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 213,
+      // height: 237,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
@@ -56,7 +57,17 @@ class CommentCardWidget extends StatelessWidget {
                 TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازیpry")
               ]
           )),
-          Text("مشاهده بیشتر"),
+          images.isEmpty 
+          ? Container(
+              height: 48,
+              width: double.infinity,
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.all(10),
+              child:  Text("مشاهده بیشتر", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).primaryColor),))
+          : ListView.builder(
+            scrollDirection: Axis.horizontal,
+            
+            itemBuilder: (context, index) => ,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
