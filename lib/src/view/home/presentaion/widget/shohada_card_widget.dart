@@ -48,7 +48,7 @@ class ShohadaCardWidget extends StatelessWidget {
                       alignment: Alignment.bottomLeft,
                       child: Padding(
                         padding: const EdgeInsets.all(10),
-                        child: Text('مشاهده', style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14,color: Theme.of(context).primaryColor),)),
+                        child: Text('درباره شهید', style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14,color: Theme.of(context).primaryColor),)),
                     ),
                   )
                 ],

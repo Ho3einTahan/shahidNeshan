@@ -3,12 +3,13 @@ import 'package:flutter_svg/svg.dart';
 
 class CustomeTextFieldWidget extends StatelessWidget {
   final TextEditingController controller;
-  const CustomeTextFieldWidget({super.key, required this.controller});
+  final double marginTop;
+  const CustomeTextFieldWidget({super.key, required this.controller, required this.marginTop});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 16),
+      margin:  EdgeInsets.only(top: marginTop),
       height: 48,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: TextFormField(

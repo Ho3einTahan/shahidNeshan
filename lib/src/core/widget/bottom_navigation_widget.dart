@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shahid_neshan/src/view/explore/presentaion/screen/explore_screen.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/screen/home_screen.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/screen/location_screen.dart';
 import 'package:shahid_neshan/src/view/profile/presentaion/screen/profile_screen.dart';
@@ -17,17 +16,22 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   
   int _selected = 0;
   
-  final List<Widget> screens = const [ HomeScreen(), ExploreScreen(), LocationScreen(), ProfileScreen() ];
-  final List<String> titles = [ 'خانه', 'کاوش', 'اطراف من', 'حساب' ];
-  final List<String> icons = ['home.svg', 'heart.svg', 'local.svg', 'user.svg'];
+  final List<Widget> screens = const [ HomeScreen(), LocationScreen(), ProfileScreen() ];
+  final List<String> titles = [ 'خانه', 'اطراف من', 'حساب' ];
+  final List<String> icons = ['home.svg', 'local.svg', 'user.svg'];
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(index: _selected, children: screens,),
-      bottomNavigationBar: SizedBox(
-        height: 61,
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(color: Color(0xffE6E6E6),width: 1),
+          )
+        ),
+        height: 62,
         child: BottomNavigationBar(
           elevation: 0,
           currentIndex: _selected,
@@ -38,7 +42,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
           selectedFontSize: 0,
           showUnselectedLabels: false,
           useLegacyColorScheme: false,
-          items:  List.generate(4, (index) => 
+          items:  List.generate(3, (index) => 
             BottomNavigationBarItem(
               activeIcon: SizedBox(
                 height: 61,

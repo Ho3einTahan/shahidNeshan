@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:shahid_neshan/src/core/constans/sizes.dart';
 import 'package:shahid_neshan/src/core/widget/custome_text_field_widget.dart';
-import 'package:shahid_neshan/src/view/location/data/model/martyr_model.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/widget/location_shahid_details_card_widget.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/widget/marker_widget.dart';
 
@@ -40,15 +38,13 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                   const MarkerLayer(
                     markers: [
-                      Marker(
-                        width: 70,
-                        height: 70,
-                        point: LatLng(33.98308, 51.43644),
-                        child: MarkerWidget(),
-                      ),
+                      Marker( width: 70, height: 70, point: LatLng(33.97155216989826, 51.4431381225586), child:  MarkerWidget(), ),
+                      Marker( width: 70, height: 70, point: LatLng(33.9921920634748, 51.45257949829102), child:  MarkerWidget(), ),
+                      Marker( width: 70, height: 70, point: LatLng(33.99083994801115, 51.40648841857911), child: MarkerWidget(), ),
+                      Marker( width: 70, height: 70, point: LatLng(33.96386430820156, 51.40125274658204), child: MarkerWidget(), ),
                     ],
                   ),
-                  CustomeTextFieldWidget(controller: searchController,)
+                  CustomeTextFieldWidget(controller: searchController, marginTop: 16,)
                 ],
               ),
             ),
