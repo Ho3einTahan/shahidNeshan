@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:shahid_neshan/src/config/theme.dart';
 import 'package:story/story_page_view.dart';
 
 class StoryScreen extends StatelessWidget {
@@ -9,20 +10,34 @@ class StoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: StoryPageView(
-        indicatorVisitedColor: Colors.white,
-        indicatorUnvisitedColor: Colors.grey,
-        itemBuilder: (context, pageIndex, storyIndex) {
-          return Stack(
-            children: <Widget>[
-              Positioned.fill(child: Image.asset("images/shahid-motahari.png", fit: BoxFit.cover)),
-              Positioned.fill(child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12), child: Container(color: Colors.black.withOpacity(0.2)))),
-              Positioned.fill(child: Image.asset("images/shahid-motahari.png")),
-            ],
-          );
-        },
-        storyLength: (pageIndex) => 3,
-        pageLength: 4,
+      body: Stack(
+        children: [
+          StoryPageView(
+            indicatorVisitedColor: Colors.white,
+            indicatorUnvisitedColor: Colors.grey,
+            itemBuilder: (context, pageIndex, storyIndex) {
+              return Stack(
+                children: <Widget>[
+                  Positioned.fill(child: Image.asset("images/shahid-motahari.png", fit: BoxFit.cover)),
+                  Positioned.fill(child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12), child: Container(color: Colors.black.withOpacity(0.2)))),
+                  Positioned.fill(child: Image.asset("images/shahid-motahari.png")),
+                ],
+              );
+            },
+            storyLength: (pageIndex) => 1,
+            pageLength: 4,
+          ),
+          Positioned(
+            left: 10,
+            top: 45,
+            child: Container(
+              width: 100,
+              height: 45,
+              decoration: BoxDecoration(color: CustomTheme.theme.colorScheme.primary, borderRadius: BorderRadius.circular(10)),
+              child: Center(child: Text('دنبال کردن', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w500))),
+            ),
+          ),
+        ],
       ),
     );
   }
