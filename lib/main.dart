@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/get_it.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
-import 'package:shahid_neshan/src/view/location/presentaion/screen/onboarding_screen.dart';
+import 'package:shahid_neshan/src/view/auth/presentation/screen/verify_otp_screen.dart';
+import 'package:shahid_neshan/src/view/home/story-screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,8 +16,9 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: CustomTheme.theme,
-      home: OnboardingScreen(),
+      home: StoryScreen(),
     );
   }
 }
