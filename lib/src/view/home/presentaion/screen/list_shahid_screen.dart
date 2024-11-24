@@ -5,7 +5,8 @@ import 'package:shahid_neshan/src/core/widget/custome_text_field_widget.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/shohada_card_widget.dart';
 
 class ListShahidScreen extends StatefulWidget {
-  const ListShahidScreen({super.key});
+  final bool needNavigationBackIcon;
+  const ListShahidScreen({super.key, required this.needNavigationBackIcon});
 
   @override
   State<ListShahidScreen> createState() => _ListShahidScreenState();
@@ -17,7 +18,7 @@ class _ListShahidScreenState extends State<ListShahidScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppbarWidget(title: "شهدای کاشان",action: [],leadingWidth: Sizes.width(context)*0.5,),
+      appBar: CustomAppbarWidget(title: "شهدای کاشان",action: [],leadingWidth: Sizes.width(context)*0.5,needNavigationBackIcon: widget.needNavigationBackIcon,),
       body: Column(
         children: [
           CustomeTextFieldWidget(controller: searchController, marginTop: 0,),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/view/home/presentaion/screen/story-screen.dart';
 
 class StoryWidget extends StatelessWidget {
   const StoryWidget({super.key});
@@ -7,32 +9,35 @@ class StoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 6),
-          padding: const EdgeInsets.all(3),
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xffD1B490),
-                Color(0xffE0CDB5),
-                Color(0xff074B87),
-              ],
-              begin: Alignment.bottomCenter,
-              end: Alignment.topCenter
-            ),
-            shape: BoxShape.circle
-          ),
+        InkWell(
+          onTap: ()=> context.navigate(StoryScreen()),
           child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 6),
+            padding: const EdgeInsets.all(3),
             decoration: const BoxDecoration(
-              color: Colors.white,
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xffD1B490),
+                  Color(0xffE0CDB5),
+                  Color(0xff074B87),
+                ],
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter
+              ),
               shape: BoxShape.circle
             ),
-            padding: const EdgeInsets.all(4),
-            child: FittedBox(
-              child: ClipOval(
-                child: SizedBox.fromSize(
-                  size: const Size.fromRadius(40),
-                  child: Image.network('https://ana.ir/files/fa/news/1403/1/13/499101_555.jpg',fit: BoxFit.cover,))),
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle
+              ),
+              padding: const EdgeInsets.all(4),
+              child: FittedBox(
+                child: ClipOval(
+                  child: SizedBox.fromSize(
+                    size: const Size.fromRadius(40),
+                    child: Image.network('https://ana.ir/files/fa/news/1403/1/13/499101_555.jpg',fit: BoxFit.cover,))),
+              ),
             ),
           ),
         ),

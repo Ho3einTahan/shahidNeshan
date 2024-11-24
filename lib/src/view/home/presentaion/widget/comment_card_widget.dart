@@ -1,11 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CommentCardWidget extends StatelessWidget {
+class CommentCardWidget extends StatefulWidget {
   final bool needImage;
   const CommentCardWidget({super.key,required this.needImage });
 
+  @override
+  State<CommentCardWidget> createState() => _CommentCardWidgetState();
+}
+
+class _CommentCardWidgetState extends State<CommentCardWidget> {
+
+  bool liked = false;
+  bool saved = false;
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -57,7 +65,7 @@ class CommentCardWidget extends StatelessWidget {
                 TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازیp")
               ]
           )),
-          if(needImage)
+          if(widget.needImage)
             Container(
                 height: 48,
                 width: double.infinity,
@@ -65,7 +73,7 @@ class CommentCardWidget extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child:  Text("مشاهده بیشتر", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).primaryColor),)),
           
-          needImage ? 
+          widget.needImage ? 
             Container(
               margin: const EdgeInsets.only(top: 8),
                 height: 100,
@@ -92,11 +100,11 @@ class CommentCardWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/icon/like.svg')),
+                  IconButton(onPressed: ()=> setState(()=> liked = !liked), icon: SvgPicture.asset(liked ? 'assets/icon/save_button.svg' : 'assets/icon/like.svg',width: 20,)),
                   IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/icon/share-one.svg')),
                 ],
               ),
-              IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/icon/Vector.svg'))
+              IconButton(onPressed: ()=> setState(()=> saved = !saved), icon: SvgPicture.asset(saved ?  'assets/icon/Vector-1.svg'  : 'assets/icon/Vector.svg'))
             ],
           )
         ],
@@ -104,3 +112,4 @@ class CommentCardWidget extends StatelessWidget {
     );
   }
 }
+

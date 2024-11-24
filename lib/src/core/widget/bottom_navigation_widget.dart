@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/screen/home_screen.dart';
+import 'package:shahid_neshan/src/view/home/presentaion/screen/list_shahid_screen.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/screen/location_screen.dart';
 import 'package:shahid_neshan/src/view/profile/presentaion/screen/profile_screen.dart';
 
@@ -16,9 +17,9 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   
   int _selected = 0;
   
-  final List<Widget> screens = const [ HomeScreen(), LocationScreen(), ProfileScreen() ];
-  final List<String> titles = [ 'خانه', 'اطراف من', 'حساب' ];
-  final List<String> icons = ['home.svg', 'local.svg', 'user.svg'];
+  final List<Widget> screens = const [ HomeScreen(), LocationScreen(), ListShahidScreen(needNavigationBackIcon: false,) ];
+  final List<String> titles = [ 'خانه', 'اطراف من', 'شهدای کاشان' ];
+  final List<String> icons = ['home.svg', 'local.svg', 'view-grid-list.svg'];
 
 
   @override

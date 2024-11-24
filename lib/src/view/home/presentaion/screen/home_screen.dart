@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/core/constans/sizes.dart';
+import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
 import 'package:shahid_neshan/src/core/widget/header_title_widget.dart';
+import 'package:shahid_neshan/src/view/help/presentation/screen/helpToKheyrie_screen.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/comment_card_widget.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/shohada_card_widget.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/story_widget.dart';
@@ -31,30 +33,33 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 15),
                 itemBuilder: (context, index) => const StoryWidget()),
             ),
-            Container(
-              width: Sizes.width(context),
-              height: Sizes.height(context)*0.25,
-              margin: const EdgeInsets.symmetric(vertical: 24,horizontal: 20),
-              decoration: BoxDecoration(
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/help.png'),
-                  fit: BoxFit.cover
-                ),
-                boxShadow: const [
-                  BoxShadow(color: Colors.black),
-                ],
-                borderRadius: BorderRadius.circular(20)
-              ),
+            InkWell(
+              onTap: ()=> context.navigate(const HelpToKheyrieScreen()),
               child: Container(
+                width: Sizes.width(context),
+                height: Sizes.height(context)*0.25,
+                margin: const EdgeInsets.symmetric(vertical: 24,horizontal: 20),
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: AssetImage('assets/images/shadow.png'), fit: BoxFit.cover),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/help.png'),
+                    fit: BoxFit.cover
+                  ),
+                  boxShadow: const [
+                    BoxShadow(color: Colors.black),
+                  ],
                   borderRadius: BorderRadius.circular(20)
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: Text('کمک به خیریه به نیت شهدا', style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white), )),
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: const DecorationImage(image: AssetImage('assets/images/shadow.png'), fit: BoxFit.cover),
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Text('کمک به خیریه به نیت شهدا', style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white), )),
+                  ),
                 ),
               ),
             ),
