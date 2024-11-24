@@ -28,13 +28,22 @@ class StoryScreen extends StatelessWidget {
             pageLength: 4,
           ),
           Positioned(
+            top: 50,
             left: 10,
-            top: 45,
-            child: Container(
-              width: 100,
-              height: 45,
-              decoration: BoxDecoration(color: CustomTheme.theme.colorScheme.primary, borderRadius: BorderRadius.circular(10)),
-              child: Center(child: Text('دنبال کردن', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w500))),
+            right: 20,
+            child: Row(
+              children: [
+                Container(
+                  width: 100,
+                  height: 45,
+                  decoration: BoxDecoration(color: CustomTheme.theme.colorScheme.primary, borderRadius: BorderRadius.circular(10)),
+                  child: Center(child: Text('دنبال کردن', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w500))),
+                ),
+                const Spacer(),
+                Text('شهید چمران', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14, color: Colors.white)),
+                const SizedBox(width: 12),
+                Image.asset("assets/images/story-shahid.png"),
+              ],
             ),
           ),
         ],
