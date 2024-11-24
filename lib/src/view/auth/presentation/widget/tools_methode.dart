@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../config/theme.dart';
+import '../../../../config/theme.dart';
 
 Widget buildVirtualKeyboard(BuildContext context, String number, TextEditingController otpController) {
   return InkWell(
