@@ -29,5 +29,8 @@ class CustomTheme {
       bodyLarge: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w700),
       labelLarge: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w800),
     ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFFF7F7F7)
+    )
   );
 }
