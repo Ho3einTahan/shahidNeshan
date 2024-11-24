@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
 
-import '../../../widget/tools_methode.dart';
+import '../widget/tools_methode.dart';
 
 class LoginRegisterScreen extends StatelessWidget {
-  const LoginRegisterScreen({super.key});
+  LoginRegisterScreen({super.key});
+
+  final TextEditingController otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +55,8 @@ class LoginRegisterScreen extends StatelessWidget {
                       runSpacing: 8,
                       alignment: WrapAlignment.end,
                       children: [
-                        ...List.generate(10, (index) => buildVirtualKeyboard(context, ((index + 1) % 10).toString(),[])),
-                        buildVirtualKeyboardRemoveButton(context, []),
+                        ...List.generate(10, (index) => buildVirtualKeyboard(context, ((index + 1) % 10).toString(), otpController)),
+                        buildVirtualKeyboardRemoveButton(context, otpController),
                       ],
                     ),
                   ),
