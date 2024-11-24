@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:shahid_neshan/src/core/constans/sizes.dart';
+import 'package:shahid_neshan/src/core/widget/custome_text_field_widget.dart';
 import 'package:shahid_neshan/src/view/location/data/model/martyr_model.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/widget/location_shahid_details_card_widget.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/widget/marker_widget.dart';
@@ -47,28 +48,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       ),
                     ],
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 16),
-                    height: 48,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: TextFormField(
-                      controller: searchController,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        border:OutlineInputBorder(
-                          borderSide: const BorderSide(color: Color(0xffD5D5D5), width: 1),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        hintText: 'جسجوی شهید...',
-                        hintStyle: Theme.of(context).textTheme.displayMedium!.copyWith(color: const Color(0xffBFBFBF), fontSize: 16),
-                        prefixIcon: Container(
-                          width: 10,
-                          padding: const EdgeInsets.all(13),
-                          child: FittedBox(child: SvgPicture.asset('assets/icon/search.svg', fit: BoxFit.contain,)))
-                      ),
-                    ),
-                  ),
+                  CustomeTextFieldWidget(controller: searchController,)
                 ],
               ),
             ),

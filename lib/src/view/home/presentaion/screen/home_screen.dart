@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                   itemCount: 2,
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) => const CommentCardWidget()
+                  itemBuilder: (context, index) =>  CommentCardWidget(needImage: index == 0 ? false : true,)
                 )
               ],
             ),

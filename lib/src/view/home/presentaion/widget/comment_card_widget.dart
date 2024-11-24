@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CommentCardWidget extends StatelessWidget {
-  final List<String> images;
-  const CommentCardWidget({super.key, required this.images});
+  final bool needImage;
+  const CommentCardWidget({super.key,required this.needImage });
 
   @override
   Widget build(BuildContext context) {
@@ -54,20 +54,38 @@ class CommentCardWidget extends StatelessWidget {
                 TextSpan(text: "#شهید_صیاد_شیرازی ... " , style: TextStyle(color: Color(0xff3981EC))),
                 TextSpan(text: "حال و هوای خیلی خوبی داشت"),
                 TextSpan(text: "سر راه به نیت شهید شیرازی صدقه دادم."),
-                TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازیpry")
+                TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازیp")
               ]
           )),
-          images.isEmpty 
-          ? Container(
-              height: 48,
-              width: double.infinity,
-              alignment: Alignment.centerRight,
-              padding: const EdgeInsets.all(10),
-              child:  Text("مشاهده بیشتر", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).primaryColor),))
-          : ListView.builder(
-            scrollDirection: Axis.horizontal,
-            
-            itemBuilder: (context, index) => ,),
+          if(needImage)
+            Container(
+                height: 48,
+                width: double.infinity,
+                alignment: Alignment.centerRight,
+                padding: const EdgeInsets.all(10),
+                child:  Text("مشاهده بیشتر", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).primaryColor),)),
+          
+          needImage ? 
+            Container(
+              margin: const EdgeInsets.only(top: 8),
+                height: 100,
+                width: double.infinity,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 7,
+                  itemBuilder: (context, index) => Container(
+                    margin: const EdgeInsets.only(left: 12),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(6),
+                      child: Image.asset('assets/images/shohada_image.png')),
+                  )),
+              )
+              :Container(
+                height: 48,
+                width: double.infinity,
+                alignment: Alignment.centerRight,
+                padding: const EdgeInsets.all(10),
+                child:  Text("مشاهده بیشتر", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).primaryColor),)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
