@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
+import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
 
 class HelpToKheyrieScreen extends StatefulWidget {
   const HelpToKheyrieScreen({super.key});
@@ -12,25 +13,48 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
   String? selectedKheyrie;
   String? selectedPrice;
   final TextEditingController priceController = TextEditingController();
+  bool isLikedAppbar = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: CustomTheme.theme.colorScheme.background,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 24, right: 10, left: 10),
+          child: Row(
+            textDirection: TextDirection.rtl,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(onPressed: () => context.navigateBack(), icon: const Icon(Icons.arrow_forward)),
+              Expanded(
+                  child: Text(
+                'کمک به خیریه به نیت شهدا',
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: MediaQuery.of(context).size.width > 360 ? 20 : 16),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+              )),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.share, color: Colors.black),
+              ),
+              IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isLikedAppbar = !isLikedAppbar;
+                    });
+                  },
+                  icon: Icon(isLikedAppbar ? Icons.favorite : Icons.favorite_border, color: isLikedAppbar ? Colors.red : Colors.black)),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text('کمک به خیریه به نیت شهدا', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)),
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_forward)),
-                ],
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.only(right: 14, bottom: 12),
               child: Row(
@@ -120,16 +144,18 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
               spacing: 16,
               runSpacing: 16,
               children: [
-                _buildShahidCard('شهید اکبر  زجاجی', 'shahid-rajaee'),
-                _buildShahidCard('شهید عباس کریمی', 'shahid-rajaee'),
-                _buildShahidCard('شهید علی آقا معمار', 'shahid-rajaee'),
-                _buildShahidCard('شهید علی فارسی', 'shahid-rajaee'),
-                _buildShahidCard('شهید رجایی کاشانی', 'shahid-rajaee'),
-                _buildShahidCard('شهید محمد باهنر', 'shahid-rajaee'),
+                _buildShahidCard('شهید اکبر  زجاجی', 'zojaji'),
+                _buildShahidCard('شهید عباس کریمی', 'karimi'),
+                _buildShahidCard('شهید علی آقا معمار', 'memar'),
+                _buildShahidCard('شهید علی فارسی', 'farsi'),
+                _buildShahidCard('شهید رجایی کاشانی', 'rejaee'),
+                _buildShahidCard('شهید محمد باهنر', 'bahonar'),
               ],
             ),
-            const SizedBox(height: 20),
-            _buildHelpToKheyrieButton(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: _buildHelpToKheyrieButton(),
+            ),
           ],
         ),
       ),
@@ -200,9 +226,13 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
   Widget _buildPlusButton() {
     return InkWell(
       onTap: () {
-        double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
-        currentValue += 1000;
-        priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
+        if (priceController.text.isEmpty) {
+          priceController.text = '1000';
+        } else {
+          double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
+          currentValue += 1000;
+          priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
+        }
       },
       child: Container(
         width: 45,
@@ -219,11 +249,13 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
   Widget _buildMinusButton() {
     return InkWell(
       onTap: () {
-        setState(() {
+        if (priceController.text.isNotEmpty) {
           double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
-          currentValue -= 1000;
-          priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
-        });
+          if (currentValue >= 1000) {
+            currentValue -= 1000;
+            priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
+          }
+        }
       },
       child: Container(
         width: 45,
@@ -241,8 +273,18 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
-          Text(shahidName, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14)),
-          Image.asset('images/$image.png'),
+          Expanded(
+            flex: 2,
+            child: Text(shahidName, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14), textAlign: TextAlign.right),
+          ),
+          const SizedBox(width: 3),
+          Expanded(
+            flex: 1,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset('assets/images/shahid_images/$image.png', fit: BoxFit.cover, width: double.infinity, height: 50),
+            ),
+          ),
         ],
       ),
     );
