@@ -31,6 +31,7 @@ class ShahidInfoScreen extends StatefulWidget {
 class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
   final List<bool> isLiked = List.generate(3, (index) => false);
   final List<bool> isSaved = List.generate(3, (index) => false);
+  bool isLikedAppbar = false;
 
   @override
   Widget build(BuildContext context) {
