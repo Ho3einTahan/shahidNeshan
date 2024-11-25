@@ -9,6 +9,7 @@ import 'package:shahid_neshan/src/view/home/presentaion/screen/list_shahid_scree
 import 'package:shahid_neshan/src/view/home/presentaion/widget/comment_card_widget.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/shohada_card_widget.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/story_widget.dart';
+import 'package:shahid_neshan/src/view/panorama/presentation/screen/panorama_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -71,7 +72,7 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               InkWell(
-                onTap: ()=> context.navigate(const HelpToKheyrieScreen()),
+                onTap: ()=> context.navigate(const PanoramaScreen()),
                 child: Container(
                   width: Sizes.width(context),
                   height: 120,

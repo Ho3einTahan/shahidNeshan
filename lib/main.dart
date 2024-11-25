@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shahid_neshan/src/config/get_it.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
 import 'package:shahid_neshan/src/view/splash_screen.dart';
 

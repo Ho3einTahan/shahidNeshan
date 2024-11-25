@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
+import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/core/utils/convert_english_to_persian.dart';
 
 class HelpToKheyrieScreen extends StatefulWidget {
   const HelpToKheyrieScreen({super.key});
@@ -21,16 +23,18 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const SizedBox(height: 30,),
             Padding(
               padding: const EdgeInsets.only(top: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text('کمک به خیریه به نیت شهدا', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)),
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_forward)),
+                  IconButton(onPressed: () => context.navigateBack(), icon: const Icon(Icons.arrow_forward)),
                 ],
               ),
             ),
+            const SizedBox(height: 25,),
             Padding(
               padding: const EdgeInsets.only(right: 14, bottom: 12),
               child: Row(
@@ -79,6 +83,7 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
               child: SizedBox(
                 child: TextField(
                   controller: priceController,
+                  inputFormatters: [PersianNumberInputFormatter()],
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.rtl,
                   decoration: InputDecoration(
@@ -202,7 +207,7 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
       onTap: () {
         double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
         currentValue += 1000;
-        priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
+        priceController.text = convertEnglishToPersian(currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬'));
       },
       child: Container(
         width: 45,
@@ -222,7 +227,7 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
         setState(() {
           double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
           currentValue -= 1000;
-          priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
+          priceController.text = convertEnglishToPersian(currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬'));
         });
       },
       child: Container(

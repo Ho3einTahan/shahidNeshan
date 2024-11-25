@@ -1,12 +1,29 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: use_build_context_synchronously
 
+import 'package:flutter/material.dart';
+import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/core/widget/bottom_navigation_widget.dart';
 import '../../../../config/theme.dart';
 import '../widget/tools_methode.dart';
 
-class VerifyOtpScreen extends StatelessWidget {
-  VerifyOtpScreen({super.key});
+class VerifyOtpScreen extends StatefulWidget {
+  final String phoneNumber;
+  VerifyOtpScreen({super.key, required this.phoneNumber});
 
+  @override
+  State<VerifyOtpScreen> createState() => _VerifyOtpScreenState();
+}
+
+class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
+  
   final TextEditingController otpController = TextEditingController();
+
+  @override
+  void didChangeDependencies()async {
+    super.didChangeDependencies();
+    await Future.delayed(const Duration(seconds: 2), ()=> setState(()=> otpController.text = '359743'));
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,25 +42,25 @@ class VerifyOtpScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text('کد یکبار مصرف', style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: CustomTheme.theme.primaryColor, fontSize: 24, fontWeight: FontWeight.w700)),
-                  Text('کد یکبار مصرفی که برای ۰۹۳۶۸۳۶۹۲۹۸ پیامک شده را وارد کنید',
+                  Text('کد یکبار مصرفی که برای ${widget.phoneNumber} پیامک شده را وارد کنید',
                       textAlign: TextAlign.end,
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: CustomTheme.theme.colorScheme.secondaryContainer, fontSize: 14, fontWeight: FontWeight.w400)),
                   _buildOtpTextField(),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(backgroundColor: CustomTheme.theme.primaryColor, minimumSize: const Size(double.infinity, 48)),
-                        onPressed: () {},
-                        child: const Text("ورود", style: TextStyle(fontSize: 19))),
+                        style: ElevatedButton.styleFrom(backgroundColor: CustomTheme.theme.primaryColor,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)), minimumSize: const Size(double.infinity, 48)),
+                        onPressed: () => context.navigateReplacement(const BottomNavigationWidget()),
+                        child:  Text("ورود", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.white))),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: Wrap(
-                      spacing: 20,
+                      spacing: 10,
                       runSpacing: 10,
                       alignment: WrapAlignment.end,
                       children: [
-                        ...List.generate(10, (index) => buildVirtualKeyboard(context, ((index + 1) % 10).toString(), otpController)),
+                        ...List.generate(10, (index) => buildVirtualKeyboard(context, ((index + 1) % 10).toString(), otpController, 6)),
                         buildVirtualKeyboardRemoveButton(context, otpController),
                       ],
                     ),
@@ -63,20 +80,25 @@ class VerifyOtpScreen extends StatelessWidget {
         height: 52,
         margin: const EdgeInsets.only(top: 40, bottom: 24),
         alignment: Alignment.center,
-        child: TextField(
-          controller: otpController,
-          readOnly: true,
-          textAlignVertical: TextAlignVertical.bottom,
-          style: const TextStyle(fontSize: 20),
-          decoration: const InputDecoration(
-            hintText: 'کد تایید',
-            hintStyle: TextStyle(fontSize: 16),
-            hintTextDirection: TextDirection.rtl,
-            border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-            enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-            focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: TextField(
+            controller: otpController,
+            readOnly: true,
+            textAlignVertical: TextAlignVertical.bottom,
+            style: const TextStyle(fontSize: 20),
+            decoration: const InputDecoration(
+              hintText: 'کد تایید',
+              hintStyle: TextStyle(fontSize: 16, color: Color(0xffBFBFBF)),
+              hintTextDirection: TextDirection.rtl,
+              border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+              focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+              contentPadding: EdgeInsets.only(bottom: 10, right: 10),
+          
+            ),
+            keyboardType: TextInputType.number,
           ),
-          keyboardType: TextInputType.number,
         ),
       ),
     );
