@@ -1,12 +1,16 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/core/widget/header_title_widget.dart';
+import 'package:shahid_neshan/src/view/home/data/shahid_kashan_model.dart';
+import 'package:shahid_neshan/src/view/home/presentaion/screen/shahid_info_screen.dart';
 import 'package:shahid_neshan/src/view/location/data/model/location_model.dart';
 
 import '../../../../core/constans/sizes.dart';
 
 class LocationShahidDetailsCardWidget extends StatelessWidget {
-  final LocationModel locationModel;
+  final ShahidKashanModel locationModel;
   const LocationShahidDetailsCardWidget({super.key, required this.locationModel});
 
   @override
@@ -37,8 +41,11 @@ class LocationShahidDetailsCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(flex: 2,child: Text(locationModel.name, style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14),)),
-                  Expanded(child: Text('درباره شهید', style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14,color: Theme.of(context).primaryColor),))
+                  Expanded(flex: 2,child: Text(locationModel.title, style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14),)),
+                  Expanded(child: InkWell(
+                    onTap: ()=> context.navigate(ShahidInfoScreen(shahidName: locationModel.title, image: locationModel.image, description: locationModel.description, 
+                    age: locationModel.age, mahalTavallod: locationModel.mahalTavalod, mahalShahadat: locationModel.mahalShahadat, vasiatNameh: locationModel.vasiatNameh)),
+                    child: Text('درباره شهید', style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14,color: Theme.of(context).primaryColor),)))
                 ],
               ),
             ),
