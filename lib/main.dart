@@ -6,7 +6,7 @@ import 'package:shahid_neshan/src/view/auth/presentation/screen/login_register_s
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  GetItDP.setUpGetIt();
+  // GetItDP.setUpGetIt();
   runApp(const Application());
 }
 
