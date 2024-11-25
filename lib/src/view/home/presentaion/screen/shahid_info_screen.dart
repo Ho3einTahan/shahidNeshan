@@ -73,16 +73,21 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
                     ),
                   ),
                 ),
-                Center(
-                  child: Wrap(
-                    spacing: 8,
+                Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _buildShahidInfoCard('محل شهادت:', widget.mahalShahadat),
-                      _buildShahidInfoCard('محل تولد:', widget.mahalTavallod),
-                      _buildShahidInfoCard('سن:', widget.age),
+                      Expanded(flex: 4, child: _buildShahidInfoCard('محل شهادت:', widget.mahalShahadat)),
+                      const SizedBox(width: 8),
+                      Expanded(flex: 4, child: _buildShahidInfoCard('محل تولد:', widget.mahalTavallod)),
+                      const SizedBox(width: 8),
+                      Expanded(flex: 2, child: _buildShahidInfoCard('سن:', widget.age)),
                     ],
                   ),
                 ),
+              ),
                 Padding(
                   padding: const EdgeInsets.only(right: 14, top: 12, bottom: 12),
                   child: Row(
@@ -126,19 +131,13 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
                       const SizedBox(width: 4),
                       Text('به نیت این شهید', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)),
                       const Spacer(),
-                      // Text(
-                      //   'افزودن پست',
-                      //   style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, color: const Color(0xffAE9678)),
-                      // ),
-                      // IconButton(
-                      //   onPressed: () {},
-                      //   icon: const Icon(Icons.add, color: Color(0xffAE9678), size: 30),
-                      // ),
+                      
                     ],
                   ),
                 ),
                 Container(
                   height: 300,
+                  padding: const EdgeInsets.symmetric(vertical: 15),
                   margin: const EdgeInsets.only(left: 20),
                   child: ListView.builder(
                     itemCount: 3,
