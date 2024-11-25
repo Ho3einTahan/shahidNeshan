@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/get_it.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
 import 'package:shahid_neshan/src/core/widget/bottom_navigation_widget.dart';
+import 'package:shahid_neshan/src/view/auth/presentation/screen/login_register_screen.dart';
+import 'package:shahid_neshan/src/view/location/presentaion/screen/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,10 +19,9 @@ class Application extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.theme,
-      // home: HomeScreen(),
       home: const Directionality(
         textDirection: TextDirection.rtl,
-        child: BottomNavigationWidget()),
+        child: BottomNavigationWidget())
     );
   }
 }

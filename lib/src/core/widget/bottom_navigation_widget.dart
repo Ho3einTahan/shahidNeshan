@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/screen/home_screen.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/screen/list_shahid_screen.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/screen/location_screen.dart';
-import 'package:shahid_neshan/src/view/profile/presentaion/screen/profile_screen.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
   const BottomNavigationWidget({ super.key });

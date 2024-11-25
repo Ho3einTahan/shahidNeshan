@@ -24,7 +24,7 @@ class CustomTheme {
         background: Color(0xffF7F7F7),
         onBackground: Colors.transparent,
       ),
-      highlightColor: const Color(0xFFFFAB00),
+      highlightColor: Colors.transparent,
       textTheme: const TextTheme(
         bodySmall: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w100),
         displaySmall: TextStyle(fontFamily: 'Dana', fontWeight: FontWeight.w300),

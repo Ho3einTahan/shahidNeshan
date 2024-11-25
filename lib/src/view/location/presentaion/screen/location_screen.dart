@@ -16,7 +16,12 @@ class LocationScreen extends StatefulWidget {
 class _LocationScreenState extends State<LocationScreen> {
   final MapController mapController = MapController();
   final TextEditingController searchController = TextEditingController();
-  late List<Marker> markers;
+  List<Marker> markers = const[
+    Marker( width: 70, height: 70, point: LatLng(33.97155216989826, 51.4431381225586),  child:  MarkerWidget(), ),
+    Marker( width: 70, height: 70, point: LatLng(33.9921920634748, 51.45257949829102),  child:  MarkerWidget(), ),
+    Marker( width: 70, height: 70, point: LatLng(33.99083994801115, 51.40648841857911), child:  MarkerWidget(), ),
+    Marker( width: 70, height: 70, point: LatLng(33.96386430820156, 51.40125274658204), child:  MarkerWidget(), ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +41,8 @@ class _LocationScreenState extends State<LocationScreen> {
                     urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                     maxNativeZoom: 12,
                   ),
-                  const MarkerLayer(
-                    markers: [
-                      Marker( width: 70, height: 70, point: LatLng(33.97155216989826, 51.4431381225586), child:  MarkerWidget(), ),
-                      Marker( width: 70, height: 70, point: LatLng(33.9921920634748, 51.45257949829102), child:  MarkerWidget(), ),
-                      Marker( width: 70, height: 70, point: LatLng(33.99083994801115, 51.40648841857911), child: MarkerWidget(), ),
-                      Marker( width: 70, height: 70, point: LatLng(33.96386430820156, 51.40125274658204), child: MarkerWidget(), ),
-                    ],
+                  MarkerLayer(
+                    markers: markers,
                   ),
                   CustomeTextFieldWidget(controller: searchController, marginTop: 16,)
                 ],

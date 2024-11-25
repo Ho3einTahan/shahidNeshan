@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/core/constans/sizes.dart';
 import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/core/fake_data.dart';
 import 'package:shahid_neshan/src/core/widget/header_title_widget.dart';
 import 'package:shahid_neshan/src/view/help/presentation/screen/helpToKheyrie_screen.dart';
+import 'package:shahid_neshan/src/view/home/presentaion/screen/list_shahid_screen.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/comment_card_widget.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/shohada_card_widget.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/story_widget.dart';
@@ -18,7 +20,7 @@ class HomeScreen extends StatelessWidget {
         leading: Row(
           children: [
             const SizedBox(width: 20,),
-            headerTitleWidget(context, false, null, 'روایتی از شهید')
+            headerTitleWidget(context, false, null, 'روایتی از شهید', null)
           ],
         )
       ),
@@ -29,9 +31,9 @@ class HomeScreen extends StatelessWidget {
               height: 130,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 10,
+                itemCount: FakeData.fakeStoryModelData.length,
                 padding: const EdgeInsets.only(right: 15),
-                itemBuilder: (context, index) => const StoryWidget()),
+                itemBuilder: (context, index) => StoryWidget(storyModel: FakeData.fakeStoryModelData[index],)),
             ),
             InkWell(
               onTap: ()=> context.navigate(const HelpToKheyrieScreen()),
@@ -67,7 +69,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: headerTitleWidget(context, true, Sizes.width(context), "شهدای کاشان")),
+                  child: headerTitleWidget(context, true, Sizes.width(context), "شهدای کاشان", const ListShahidScreen(needNavigationBackIcon: true,)), ),
                 const SizedBox(height: 15,),
                 SizedBox(
                   height: 125,
@@ -85,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   margin: const EdgeInsets.only(top: 24),
-                  child: headerTitleWidget(context, true, Sizes.width(context), "به نیت شهدا...")),
+                  child: headerTitleWidget(context, true, Sizes.width(context), "به نیت شهدا...", null)),
                 const SizedBox(height: 15,),
                 ListView.builder(
                   shrinkWrap: true,

@@ -4,7 +4,7 @@ import 'package:shahid_neshan/src/config/theme.dart';
 import '../widget/tools_methode.dart';
 
 class LoginRegisterScreen extends StatelessWidget {
-  LoginRegisterScreen({super.key});
+    LoginRegisterScreen({super.key});
 
   final TextEditingController otpController = TextEditingController();
 
