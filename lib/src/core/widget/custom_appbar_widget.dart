@@ -28,7 +28,7 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
             const SizedBox(width: 20),
             if (needNavigationBackIcon ?? true) InkWell(onTap: () => context.navigateBack(), child: SvgPicture.asset('assets/icon/arrow-right.svg', color: iconColor)),
             const SizedBox(width: 8),
-            Text(title, style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20, fontWeight: FontWeight.w700, color: titleColor))
+            Expanded(child: Text(title, style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w700, color: titleColor)))
           ],
         ),
         actions: action,
