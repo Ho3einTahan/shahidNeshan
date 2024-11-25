@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../data/model/onboarding_model.dart';
+import '../../../location/presentaion/data/model/onboarding_model.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
