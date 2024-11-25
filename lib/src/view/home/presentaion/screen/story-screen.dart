@@ -5,7 +5,10 @@ import 'package:shahid_neshan/src/config/theme.dart';
 import 'package:story/story_page_view.dart';
 
 class StoryScreen extends StatelessWidget {
-  const StoryScreen({super.key});
+  StoryScreen({super.key, required this.image, required this.shahidName});
+
+  String image;
+  String shahidName;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +21,9 @@ class StoryScreen extends StatelessWidget {
             itemBuilder: (context, pageIndex, storyIndex) {
               return Stack(
                 children: <Widget>[
-                  Positioned.fill(child: Image.asset("images/shahid-motahari.png", fit: BoxFit.cover)),
+                  Positioned.fill(child: Image.asset(image, fit: BoxFit.cover)),
                   Positioned.fill(child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12), child: Container(color: Colors.black.withOpacity(0.2)))),
-                  Positioned.fill(child: Image.asset("images/shahid-motahari.png")),
+                  Positioned.fill(child: Image.asset(image)),
                 ],
               );
             },
@@ -40,9 +43,9 @@ class StoryScreen extends StatelessWidget {
                   child: Center(child: Text('دنبال کردن', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, color: Colors.white, fontWeight: FontWeight.w500))),
                 ),
                 const Spacer(),
-                Text('شهید چمران', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14, color: Colors.white)),
+                Text(shahidName, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14, color: Colors.white)),
                 const SizedBox(width: 12),
-                Image.asset("assets/images/story-shahid.png"),
+                Image.asset(image),
               ],
             ),
           ),

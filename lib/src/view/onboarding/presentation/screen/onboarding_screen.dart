@@ -18,9 +18,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: CustomTheme.theme.scaffoldBackgroundColor,
-      appBar: AppBar(actions: const [],leading: const SizedBox.shrink(),),
       body: PageView.builder(
         controller: _pageController,
         itemCount: OnboardingScreenHandler.getOnboardingItem.length,
@@ -31,7 +30,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Image.asset("images/${OnboardingScreenHandler.getOnboardingItem[index].image}.png", width: 267, height: 352),
               Text(OnboardingScreenHandler.getOnboardingItem[index].subTitle,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: CustomTheme.theme.colorScheme.primary, fontSize: 28, fontWeight: FontWeight.w700)),
-              const SizedBox(height: 8,),
+              const SizedBox(
+                height: 8,
+              ),
               Text(
                 OnboardingScreenHandler.getOnboardingItem[index].title,
                 textAlign: TextAlign.center,
@@ -39,19 +40,22 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 32),
-                child: SmoothPageIndicator(controller: _pageController, count: 3 ,effect:  WormEffect(dotHeight: 8,paintStyle: PaintingStyle.stroke ,dotWidth: 8,activeDotColor:Theme.of(context).primaryColor ), onDotClicked: (index) {}),
+                child: SmoothPageIndicator(
+                    controller: _pageController,
+                    count: 3,
+                    effect: WormEffect(dotHeight: 8, paintStyle: PaintingStyle.stroke, dotWidth: 8, activeDotColor: Theme.of(context).primaryColor),
+                    onDotClicked: (index) {}),
               ),
               const Spacer(),
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: CustomTheme.theme.primaryColor,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,minimumSize: const Size(double.infinity, 48)),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: CustomTheme.theme.primaryColor, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)), minimumSize: const Size(double.infinity, 48)),
                     onPressed: () {
-                      index == 2 
-                        ? context.navigate(LoginRegisterScreen())
-                        :_pageController.nextPage(duration: const Duration(milliseconds: 600), curve: Curves.easeInSine);
+                      index == 2 ? context.navigate(LoginRegisterScreen()) : _pageController.nextPage(duration: const Duration(milliseconds: 600), curve: Curves.easeInSine);
                     },
-                    child: Text("بعدی", style:Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16,color: Colors.white))),
+                    child: Text("بعدی", style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, color: Colors.white))),
               ),
             ],
           ),

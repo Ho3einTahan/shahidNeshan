@@ -29,7 +29,7 @@ class _ListShahidScreenState extends State<ListShahidScreen> {
       ),
       body: Column(
         children: [
-          CustomeTextFieldWidget(controller: searchController, marginTop: 0),
+          CustomeTextFieldWidget(controller: searchController, marginTop: 12),
           const SizedBox(height: 5),
           Expanded(
             child: ListView.builder(

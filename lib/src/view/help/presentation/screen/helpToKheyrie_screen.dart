@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
 import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/core/utils/convert_english_to_persian.dart';
 
 class HelpToKheyrieScreen extends StatefulWidget {
   const HelpToKheyrieScreen({super.key});
@@ -231,16 +232,13 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
         } else {
           double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
           currentValue += 1000;
-          priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
+          priceController.text = convertEnglishToPersian(currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬'));
         }
       },
       child: Container(
         width: 45,
         height: 45,
-        decoration: BoxDecoration(
-          color: CustomTheme.theme.primaryColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
+        decoration: BoxDecoration(color: CustomTheme.theme.primaryColor, borderRadius: BorderRadius.circular(12)),
         child: const Center(child: Icon(Icons.add, color: Colors.white, size: 28)),
       ),
     );
@@ -253,7 +251,7 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
           double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
           if (currentValue >= 1000) {
             currentValue -= 1000;
-            priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
+            priceController.text = convertEnglishToPersian(currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬'));
           }
         }
       },
@@ -273,10 +271,7 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
-          Expanded(
-            flex: 2,
-            child: Text(shahidName, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14), textAlign: TextAlign.right),
-          ),
+          Expanded(flex: 2, child: Text(shahidName, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14), textAlign: TextAlign.right)),
           const SizedBox(width: 3),
           Expanded(
             flex: 1,
