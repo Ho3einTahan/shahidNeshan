@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CommentCardWidget extends StatefulWidget {
-  final bool needImage;
-  const CommentCardWidget({super.key,required this.needImage });
+  final List<String> images;
+  const CommentCardWidget({super.key,required this.images });
 
   @override
   State<CommentCardWidget> createState() => _CommentCardWidgetState();
@@ -65,27 +65,20 @@ class _CommentCardWidgetState extends State<CommentCardWidget> {
                 TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازیp")
               ]
           )),
-          if(widget.needImage)
-            Container(
-                height: 48,
-                width: double.infinity,
-                alignment: Alignment.centerRight,
-                padding: const EdgeInsets.all(10),
-                child:  Text("مشاهده بیشتر", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).primaryColor),)),
           
-          widget.needImage ? 
+          widget.images.isNotEmpty ? 
             Container(
               margin: const EdgeInsets.only(top: 8),
                 height: 100,
                 width: double.infinity,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 7,
+                  itemCount: widget.images.length,
                   itemBuilder: (context, index) => Container(
                     margin: const EdgeInsets.only(left: 12),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(6),
-                      child: Image.asset('assets/images/shohada_image.png')),
+                      child: Image.asset(widget.images[index])),
                   )),
               )
               :Container(

@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/core/constans/sizes.dart';
+import 'package:shahid_neshan/src/view/home/data/shahid_kashan_model.dart';
 
 class ShohadaCardWidget extends StatelessWidget {
-  const ShohadaCardWidget({super.key});
+  final ShahidKashanModel shahidKashanModel;
+  const ShohadaCardWidget({super.key, required this.shahidKashanModel});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,8 @@ class ShohadaCardWidget extends StatelessWidget {
                 bottomRight: Radius.circular(10),
                 topRight: Radius.circular(10)
               ),
-              child: Image.asset('assets/images/shohada_image.png', fit: BoxFit.cover,))),
+              // child: Image.asset('assets/images/shohada_image.png', fit: BoxFit.cover,))),
+              child: Image.asset(shahidKashanModel.image, fit: BoxFit.cover,))),
           const SizedBox(width: 8,),
           Expanded(
             child: Padding(
@@ -34,11 +37,10 @@ class ShohadaCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('شهید هاشمیان زاده برزکی', style: Theme.of(context).textTheme.bodyLarge,),
+                  Text(shahidKashanModel.title, style: Theme.of(context).textTheme.bodyLarge,),
                   const SizedBox(height: 4,),
                   Text(
-                      '4 خرداد ماه 1332 درکاشان متولد شد پس \nاز اخذ دیپلم صنعتی ، درسال50 وارد دانشگاه علم وصنعت شد',
-                      overflow: TextOverflow.ellipsis, 
+                      shahidKashanModel.description.length > 61 ? '${shahidKashanModel.description.substring(0,61)}...' : shahidKashanModel.description,
                       style: Theme.of(context).textTheme.displayMedium?.copyWith(
                         fontSize: 12, color: const Color(0xff555555)
                       ),
