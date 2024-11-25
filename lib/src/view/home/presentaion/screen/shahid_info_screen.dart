@@ -83,27 +83,18 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
                   children: [
                     Image.asset("assets/icon/appbar_icon.png"),
                     const SizedBox(width: 4),
-                    Text(
-                      'خلاصه زندگی نامه',
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),
-                    ),
+                    Text('خلاصه زندگی نامه', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)),
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(widget.description, textAlign: TextAlign.justify),
-              ),
+              Padding(padding: const EdgeInsets.symmetric(horizontal: 20), child: Text(widget.description, textAlign: TextAlign.justify)),
               Padding(
                 padding: const EdgeInsets.only(right: 14, top: 12, bottom: 12),
                 child: Row(
                   children: [
                     Image.asset("assets/icon/appbar_icon.png"),
                     const SizedBox(width: 4),
-                    Text(
-                      'خلاصه زندگی نامه',
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),
-                    ),
+                    Text('خلاصه وصیت نامه', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)),
                   ],
                 ),
               ),
