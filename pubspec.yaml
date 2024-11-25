@@ -38,6 +38,8 @@ flutter:
     - images/
     - assets/icon/
     - assets/images/
+    - assets/images/posts/
+    - assets/images/shahid_images/
 
   fonts:
       - family: Dana
