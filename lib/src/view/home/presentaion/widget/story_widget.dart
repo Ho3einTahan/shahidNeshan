@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
 import 'package:shahid_neshan/src/view/home/data/story_model.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/screen/story-screen.dart';

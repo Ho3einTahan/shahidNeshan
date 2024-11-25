@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/get_it.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
-import 'package:shahid_neshan/src/core/widget/bottom_navigation_widget.dart';
-import 'package:shahid_neshan/src/view/auth/presentation/screen/login_register_screen.dart';
+import 'package:shahid_neshan/src/view/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +19,7 @@ class Application extends StatelessWidget {
       theme: CustomTheme.theme,
       home: const Directionality(
         textDirection: TextDirection.rtl,
-        child: BottomNavigationWidget())
+        child: SplashScreen())
     );
   }
 }

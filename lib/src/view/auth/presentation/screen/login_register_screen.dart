@@ -44,7 +44,7 @@ class LoginRegisterScreen extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(backgroundColor: CustomTheme.theme.primaryColor, minimumSize: const Size(double.infinity, 48)),
+                        style: ElevatedButton.styleFrom(backgroundColor: CustomTheme.theme.primaryColor,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,minimumSize: const Size(double.infinity, 48)),
                         onPressed: () {},
                         child: const Text("ورود", style: TextStyle(fontSize: 19))),
                   ),

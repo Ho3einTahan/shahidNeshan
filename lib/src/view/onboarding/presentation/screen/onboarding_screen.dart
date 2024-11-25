@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
+import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/view/auth/presentation/screen/login_register_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../location/presentaion/data/model/onboarding_model.dart';
@@ -18,6 +20,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: CustomTheme.theme.scaffoldBackgroundColor,
+      appBar: AppBar(actions: const [],leading: const SizedBox.shrink(),),
       body: PageView.builder(
         controller: _pageController,
         itemCount: OnboardingScreenHandler.getOnboardingItem.length,
@@ -28,24 +31,27 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Image.asset("images/${OnboardingScreenHandler.getOnboardingItem[index].image}.png", width: 267, height: 352),
               Text(OnboardingScreenHandler.getOnboardingItem[index].subTitle,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: CustomTheme.theme.colorScheme.primary, fontSize: 28, fontWeight: FontWeight.w700)),
+              const SizedBox(height: 8,),
               Text(
                 OnboardingScreenHandler.getOnboardingItem[index].title,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: CustomTheme.theme.colorScheme.primary, fontSize: 16, fontWeight: FontWeight.w400),
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: const Color(0xff5A87AF), fontSize: 16, fontWeight: FontWeight.w400),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 32),
-                child: SmoothPageIndicator(controller: _pageController, count: 3, effect: const WormEffect(dotHeight: 10, dotWidth: 10), onDotClicked: (index) {}),
+                child: SmoothPageIndicator(controller: _pageController, count: 3 ,effect:  WormEffect(dotHeight: 8,paintStyle: PaintingStyle.stroke ,dotWidth: 8,activeDotColor:Theme.of(context).primaryColor ), onDotClicked: (index) {}),
               ),
               const Spacer(),
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: CustomTheme.theme.primaryColor, minimumSize: const Size(double.infinity, 48)),
+                    style: ElevatedButton.styleFrom(backgroundColor: CustomTheme.theme.primaryColor,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)) ,minimumSize: const Size(double.infinity, 48)),
                     onPressed: () {
-                      _pageController.nextPage(duration: const Duration(milliseconds: 600), curve: Curves.easeInSine);
+                      index == 2 
+                        ? context.navigate(LoginRegisterScreen())
+                        :_pageController.nextPage(duration: const Duration(milliseconds: 600), curve: Curves.easeInSine);
                     },
-                    child: const Text("بعدی", style: TextStyle(fontSize: 19))),
+                    child: Text("بعدی", style:Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16,color: Colors.white))),
               ),
             ],
           ),
