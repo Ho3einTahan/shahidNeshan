@@ -30,9 +30,13 @@ class _PanoramaScreenState extends State<PanoramaScreen> {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppbarWidget(title: 'نمای ۳۶۰درجه گلزار شهدای کاشان', action: [], leadingWidth: Sizes.width(context)*0.8,fontSize: 16,),
-      body: WebViewWidget(controller: webViewController),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: CustomAppbarWidget(title: 'نمای ۳۶۰درجه گلزار شهدای کاشان', action: [], leadingWidth: Sizes.width(context)*0.8,fontSize: 16,),
+        body: WebViewWidget(controller: webViewController),
+      ),
     );
   }
+
 }

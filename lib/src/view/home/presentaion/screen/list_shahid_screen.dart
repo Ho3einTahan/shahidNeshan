@@ -45,14 +45,14 @@ class _ListShahidScreenState extends State<ListShahidScreen> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => ShahidInfoScreen(
-                                      shahidName: FakeData.shahidKashan[index].title,
-                                      image: FakeData.shahidKashan[index].image,
-                                      description: FakeData.shahidKashan[index].description,
-                                      age: FakeData.shahidKashan[index].age,
-                                      mahalTavallod: FakeData.shahidKashan[index].mahalTavalod,
-                                      mahalShahadat: FakeData.shahidKashan[index].mahalShahadat,
-                                      vasiatNameh: FakeData.shahidKashan[index].vasiatNameh,
-                                    )));
+                                  shahidName: FakeData.shahidKashan[index].title,
+                                  image: FakeData.shahidKashan[index].image,
+                                  description: FakeData.shahidKashan[index].description,
+                                  age: FakeData.shahidKashan[index].age,
+                                  mahalTavallod: FakeData.shahidKashan[index].mahalTavalod,
+                                  mahalShahadat: FakeData.shahidKashan[index].mahalShahadat,
+                                  vasiatNameh: FakeData.shahidKashan[index].vasiatNameh,
+                                )));
                       },
                       child: ShohadaCardWidget(shahidKashanModel: FakeData.shahidKashan[index]))),
             ),

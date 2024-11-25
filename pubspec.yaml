@@ -24,7 +24,9 @@ dependencies:
   story: ^1.1.0
   geolocator: ^11.1.0
   flutter_svg: ^2.0.10
-  win32: ^5.1.1
+  win32: ^5.8.0
+  webview_flutter: ^4.10.0
+  animated_snack_bar: ^0.4.0
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +40,8 @@ flutter:
     - images/
     - assets/icon/
     - assets/images/
+    - assets/images/posts/
+    - assets/images/shahid_images/
 
   fonts:
       - family: Dana

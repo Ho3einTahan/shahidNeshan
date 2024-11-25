@@ -10,6 +10,7 @@ String convertEnglishToPersian(String input) {
     '5': '۵',
     '6': '۶',
     '7': '۷',
+    
     '8': '۸',
     '9': '۹',
   };

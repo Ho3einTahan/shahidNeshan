@@ -10,8 +10,9 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
   final Color? iconColor;
   final Color? titleColor;
   final bool? needNavigationBackIcon;
+  final double? fontSize;
 
-  const CustomAppbarWidget({super.key, required this.title, required this.action, required this.leadingWidth, this.backgroundColor, this.iconColor, this.titleColor, this.needNavigationBackIcon});
+  const CustomAppbarWidget({super.key, required this.title, required this.action, required this.leadingWidth, this.backgroundColor, this.iconColor, this.titleColor, this.needNavigationBackIcon, this.fontSize});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
             const SizedBox(width: 20),
             if (needNavigationBackIcon ?? true) InkWell(onTap: () => context.navigateBack(), child: SvgPicture.asset('assets/icon/arrow-right.svg', color: iconColor)),
             const SizedBox(width: 8),
-            Expanded(child: Text(title, style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w700, color: titleColor)))
+            Text(title, style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w700, color: titleColor, ))
           ],
         ),
         actions: action,

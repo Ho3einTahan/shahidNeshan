@@ -125,12 +125,12 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
               spacing: 16,
               runSpacing: 16,
               children: [
-                _buildShahidCard('شهید اکبر  زجاجی', 'shahid-rajaee'),
-                _buildShahidCard('شهید عباس کریمی', 'shahid-rajaee'),
-                _buildShahidCard('شهید علی آقا معمار', 'shahid-rajaee'),
-                _buildShahidCard('شهید علی فارسی', 'shahid-rajaee'),
-                _buildShahidCard('شهید رجایی کاشانی', 'shahid-rajaee'),
-                _buildShahidCard('شهید محمد باهنر', 'shahid-rajaee'),
+                _buildShahidCard('شهید اکبر  زجاجی', 'zojaji'),
+                _buildShahidCard('شهید عباس کریمی', 'karimi'),
+                _buildShahidCard('شهید علی آقا معمار', 'memar'),
+                _buildShahidCard('شهید علی فارسی', 'farsi'),
+                _buildShahidCard('شهید رجایی کاشانی', 'rejaee'),
+                _buildShahidCard('شهید محمد باهنر', 'bahonar'),
               ],
             ),
             const SizedBox(height: 20),
@@ -245,9 +245,15 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
       height: 50,
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(shahidName, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14)),
-          Image.asset('images/$image.png'),
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(10),
+              bottomRight: Radius.circular(10),
+            ),
+            child: Image.asset('assets/images/shahid_images/$image.png', fit: BoxFit.cover,width: 40,)),
         ],
       ),
     );

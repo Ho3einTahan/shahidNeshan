@@ -21,7 +21,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
   @override
   void didChangeDependencies()async {
     super.didChangeDependencies();
-    await Future.delayed(const Duration(seconds: 2), ()=> setState(()=> otpController.text = '359743'));
+    await Future.delayed(const Duration(seconds: 2), ()=> setState(()=> otpController.text = '۲۷۹۵۲۰'));
   }
 
 
