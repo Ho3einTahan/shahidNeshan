@@ -31,6 +31,7 @@ class ShahidInfoScreen extends StatefulWidget {
 class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
   final List<bool> isLiked = List.generate(3, (index) => false);
   final List<bool> isSaved = List.generate(3, (index) => false);
+  bool isLikedAppbar = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +44,12 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
             icon: const Icon(Icons.share, color: Colors.black),
           ),
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.favorite_border, color: Colors.black),
+            onPressed: () {
+              setState(() {
+                isLikedAppbar = !isLikedAppbar;
+              });
+            },
+            icon: Icon(isLikedAppbar ? Icons.favorite : Icons.favorite_border, color: isLikedAppbar ? Colors.red : Colors.black),
           ),
         ],
         leadingWidth: Sizes.width(context) * 0.5,
@@ -56,25 +61,20 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20), child: Center(child: Image.asset(widget.image, height: 320, width: double.infinity, fit: BoxFit.cover))),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Center(
-                  child: Image.asset(
-                    widget.image,
-                    height: 320,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(flex: 4, child: _buildShahidInfoCard('محل شهادت:', widget.mahalShahadat)),
+                      const SizedBox(width: 8),
+                      Expanded(flex: 4, child: _buildShahidInfoCard('محل تولد:', widget.mahalTavallod)),
+                      const SizedBox(width: 8),
+                      Expanded(flex: 2, child: _buildShahidInfoCard('سن:', widget.age)),
+                    ],
                   ),
-                ),
-              ),
-              Center(
-                child: Wrap(
-                  spacing: 8,
-                  children: [
-                    _buildShahidInfoCard('محل شهادت:', widget.mahalShahadat),
-                    _buildShahidInfoCard('محل تولد:', widget.mahalTavallod),
-                    _buildShahidInfoCard('سن:', widget.age),
-                  ],
                 ),
               ),
               Padding(
