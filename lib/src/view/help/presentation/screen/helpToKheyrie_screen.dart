@@ -14,12 +14,45 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
   String? selectedKheyrie;
   String? selectedPrice;
   final TextEditingController priceController = TextEditingController();
+  bool isLikedAppbar = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: CustomTheme.theme.colorScheme.background,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 24, right: 10, left: 10),
+          child: Row(
+            textDirection: TextDirection.rtl,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              IconButton(onPressed: () => context.navigateBack(), icon: const Icon(Icons.arrow_forward)),
+              Expanded(
+                  child: Text(
+                'کمک به خیریه به نیت شهدا',
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: MediaQuery.of(context).size.width > 360 ? 20 : 16),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+              )),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.share, color: Colors.black),
+              ),
+              IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isLikedAppbar = !isLikedAppbar;
+                    });
+                  },
+                  icon: Icon(isLikedAppbar ? Icons.favorite : Icons.favorite_border, color: isLikedAppbar ? Colors.red : Colors.black)),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -133,8 +166,10 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
                 _buildShahidCard('شهید محمد باهنر', 'bahonar'),
               ],
             ),
-            const SizedBox(height: 20),
-            _buildHelpToKheyrieButton(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: _buildHelpToKheyrieButton(),
+            ),
           ],
         ),
       ),
@@ -205,9 +240,13 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
   Widget _buildPlusButton() {
     return InkWell(
       onTap: () {
-        double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
-        currentValue += 1000;
-        priceController.text = convertEnglishToPersian(currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬'));
+        if (priceController.text.isEmpty) {
+          priceController.text = '1000';
+        } else {
+          double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
+          currentValue += 1000;
+          priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
+        }
       },
       child: Container(
         width: 45,
@@ -224,11 +263,13 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
   Widget _buildMinusButton() {
     return InkWell(
       onTap: () {
-        setState(() {
+        if (priceController.text.isNotEmpty) {
           double currentValue = double.parse(persianToEnglishDigits(priceController.text.replaceAll('٬', '')));
-          currentValue -= 1000;
-          priceController.text = convertEnglishToPersian(currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬'));
-        });
+          if (currentValue >= 1000) {
+            currentValue -= 1000;
+            priceController.text = currentValue.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d)(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}٬');
+          }
+        }
       },
       child: Container(
         width: 45,
