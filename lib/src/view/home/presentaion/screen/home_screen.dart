@@ -6,9 +6,11 @@ import 'package:shahid_neshan/src/core/fake_data.dart';
 import 'package:shahid_neshan/src/core/widget/header_title_widget.dart';
 import 'package:shahid_neshan/src/view/help/presentation/screen/helpToKheyrie_screen.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/screen/list_shahid_screen.dart';
+import 'package:shahid_neshan/src/view/home/presentaion/screen/shahid_info_screen.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/comment_card_widget.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/shohada_card_widget.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/widget/story_widget.dart';
+import 'package:shahid_neshan/src/view/panorama/presentation/screen/panorama_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -71,7 +73,7 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               InkWell(
-                onTap: ()=> context.navigate(const HelpToKheyrieScreen()),
+                onTap: ()=> context.navigate(const PanoramaScreen()),
                 child: Container(
                   width: Sizes.width(context),
                   height: 120,
@@ -112,7 +114,17 @@ class HomeScreen extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: FakeData.shahidKashan.length,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => ShohadaCardWidget(shahidKashanModel: FakeData.shahidKashan[index],)
+                      itemBuilder: (context, index) => InkWell(
+                        onTap: ()=> context.navigate(ShahidInfoScreen(
+                          shahidName: FakeData.shahidKashan[index].title, 
+                          image: FakeData.shahidKashan[index].image, 
+                          description: FakeData.shahidKashan[index].description, 
+                          age: FakeData.shahidKashan[index].age, 
+                          mahalTavallod: FakeData.shahidKashan[index].mahalTavalod, 
+                          mahalShahadat: FakeData.shahidKashan[index].mahalShahadat, 
+                          vasiatNameh: FakeData.shahidKashan[index].vasiatNameh)),
+                        child: ShohadaCardWidget(shahidKashanModel: FakeData.shahidKashan[index],),
+                      )
                     ),
                   )
                 ],
