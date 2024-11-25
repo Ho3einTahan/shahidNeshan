@@ -35,34 +35,45 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppbarWidget(
-        title: widget.shahidName,
-        action: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.share, color: Colors.black),
-          ),
-          IconButton(
-            onPressed: () {
-              setState(() {
-                isLikedAppbar = !isLikedAppbar;
-              });
-            },
-            icon: Icon(isLikedAppbar ? Icons.favorite : Icons.favorite_border, color: isLikedAppbar ? Colors.red : Colors.black),
-          ),
-        ],
-        leadingWidth: Sizes.width(context) * 0.5,
-        needNavigationBackIcon: true,
-      ),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20), child: Center(child: Image.asset(widget.image, height: 320, width: double.infinity, fit: BoxFit.cover))),
-              Padding(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: CustomAppbarWidget(
+          title: widget.shahidName,
+          action: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.share, color: Colors.black),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.favorite_border, color: Colors.black),
+            ),
+          ],
+          leadingWidth: Sizes.width(context) * 0.7,
+          needNavigationBackIcon: true,
+        ),
+        body: Directionality(
+          textDirection: TextDirection.rtl,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                  child: Center(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.asset(
+                        widget.image,
+                        height: 320,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Center(
                   child: Row(
@@ -77,61 +88,65 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(right: 14, top: 12, bottom: 12),
-                child: Row(
-                  children: [
-                    Image.asset("assets/icon/appbar_icon.png"),
-                    const SizedBox(width: 4),
-                    Text('خلاصه زندگی نامه', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(right: 14, top: 12, bottom: 12),
+                  child: Row(
+                    children: [
+                      Image.asset("assets/icon/appbar_icon.png"),
+                      const SizedBox(width: 4),
+                      Text(
+                        'خلاصه زندگی نامه',
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Padding(padding: const EdgeInsets.symmetric(horizontal: 20), child: Text(widget.description, textAlign: TextAlign.justify)),
-              Padding(
-                padding: const EdgeInsets.only(right: 14, top: 12, bottom: 12),
-                child: Row(
-                  children: [
-                    Image.asset("assets/icon/appbar_icon.png"),
-                    const SizedBox(width: 4),
-                    Text('خلاصه وصیت نامه', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(widget.description, textAlign: TextAlign.justify),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text(widget.vasiatNameh, textAlign: TextAlign.justify),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 14, top: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Image.asset("assets/icon/appbar_icon.png"),
-                    const SizedBox(width: 4),
-                    Text('به نیت این شهید', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)),
-                    const Spacer(),
-                    Text(
-                      'افزودن پست',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, color: const Color(0xffAE9678)),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.add, color: Color(0xffAE9678), size: 30),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(right: 14, top: 12, bottom: 12),
+                  child: Row(
+                    children: [
+                      Image.asset("assets/icon/appbar_icon.png"),
+                      const SizedBox(width: 4),
+                      Text(
+                        'خلاصه زندگی نامه',
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                height: 257,
-                margin: const EdgeInsets.only(left: 20),
-                child: ListView.builder(
-                  itemCount: 3,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => _buildCommentBanner(index),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(widget.vasiatNameh, textAlign: TextAlign.justify),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.only(right: 14, top: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Image.asset("assets/icon/appbar_icon.png"),
+                      const SizedBox(width: 4),
+                      Text('به نیت این شهید', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20)),
+                      const Spacer(),
+                      
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 300,
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  margin: const EdgeInsets.only(left: 20),
+                  child: ListView.builder(
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => _buildCommentBanner(index),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
