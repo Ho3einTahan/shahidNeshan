@@ -18,12 +18,7 @@ class StoryWidget extends StatelessWidget {
             margin: const EdgeInsets.symmetric(horizontal: 6),
             padding: const EdgeInsets.all(3),
             decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Color(0xffD1B490),
-                  Color(0xffE0CDB5),
-                  Color(0xff074B87),
-                ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
-                shape: BoxShape.circle),
+                gradient: LinearGradient(colors: [Color(0xffD1B490), Color(0xffE0CDB5), Color(0xff074B87)], begin: Alignment.bottomCenter, end: Alignment.topCenter), shape: BoxShape.circle),
             child: Container(
               decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
               padding: const EdgeInsets.all(4),
