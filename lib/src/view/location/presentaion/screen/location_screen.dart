@@ -4,11 +4,13 @@ import 'package:latlong2/latlong.dart';
 import 'package:shahid_neshan/src/core/constans/sizes.dart';
 import 'package:shahid_neshan/src/core/fake_data.dart';
 import 'package:shahid_neshan/src/core/widget/custome_text_field_widget.dart';
+import 'package:shahid_neshan/src/view/home/data/shahid_kashan_model.dart';
+import 'package:shahid_neshan/src/view/home/presentaion/screen/shahid_info_screen.dart';
 import 'package:shahid_neshan/src/view/location/data/model/location_model.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/widget/location_shahid_details_card_widget.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/widget/marker_widget.dart';
 
-final ValueNotifier<LocationModel?> selected = ValueNotifier<LocationModel?>(null);
+final ValueNotifier<ShahidKashanModel?> selected = ValueNotifier<ShahidKashanModel?>(null);
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
 
@@ -20,7 +22,7 @@ class _LocationScreenState extends State<LocationScreen> {
 
   final MapController mapController = MapController();
   final TextEditingController searchController = TextEditingController();
-  LocationModel? selectedLocation;
+  ShahidKashanModel? selectedLocation;
   
   
   late List<Marker> markers;
@@ -28,10 +30,10 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   void initState() {
     super.initState();
-    markers = FakeData.locationData.map((e) => Marker(
+    markers = FakeData.shahidKashan.map((e) => Marker(
     point: e.latLng,
-    width: 80,
-    height: 80,
+    width: 85,
+    height: 85,
     child: MarkerWidget(
       locationModel: e,
       onTap: () {
