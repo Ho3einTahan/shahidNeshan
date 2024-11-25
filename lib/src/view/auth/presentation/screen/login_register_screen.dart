@@ -4,7 +4,7 @@ import 'package:shahid_neshan/src/config/theme.dart';
 import '../widget/tools_methode.dart';
 
 class LoginRegisterScreen extends StatelessWidget {
-    LoginRegisterScreen({super.key});
+  LoginRegisterScreen({super.key});
 
   final TextEditingController otpController = TextEditingController();
 
@@ -27,20 +27,21 @@ class LoginRegisterScreen extends StatelessWidget {
                   Text('ورود یا ثبت نام', style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: CustomTheme.theme.primaryColor, fontSize: 24, fontWeight: FontWeight.w700)),
                   Text('جهت ورود به شهید نشان شماره موبایل خود را وارد کنید',
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: CustomTheme.theme.colorScheme.secondaryContainer, fontSize: 14, fontWeight: FontWeight.w400)),
-                  Container(
-                    height: 52,
-                    margin: const EdgeInsets.only(top: 40, bottom: 24),
-                    child: TextField(
-                      readOnly: true,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-                        focusedBorder: const OutlineInputBorder(),
-                        prefixIconConstraints: const BoxConstraints(minWidth: 90),
-                        prefixIcon: Image.asset("assets/icon/flag.png"),
-                      ),
-                    ),
-                  ),
+                  // Container(
+                  //   height: 52,
+                  //   margin: const EdgeInsets.only(top: 40, bottom: 24),
+                  //   child: TextField(
+                  //     readOnly: true,
+                  //     decoration: InputDecoration(
+                  //       border: const OutlineInputBorder(),
+                  //       enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+                  //       focusedBorder: const OutlineInputBorder(),
+                  //       prefixIconConstraints: const BoxConstraints(minWidth: 90),
+                  //       prefixIcon: Image.asset("assets/icon/flag.png"),
+                  //     ),
+                  //   ),
+                  // ),
+                  _buildPhoneNumberInput(),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: ElevatedButton(
@@ -64,6 +65,30 @@ class LoginRegisterScreen extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPhoneNumberInput() {
+    return Center(
+      child: Container(
+        height: 52,
+        margin: const EdgeInsets.only(top: 40, bottom: 24),
+        alignment: Alignment.center,
+        child: TextField(
+          controller: otpController,
+          readOnly: true,
+          textAlignVertical: TextAlignVertical.top,
+          style: const TextStyle(fontSize: 20),
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+            focusedBorder: const OutlineInputBorder(),
+            prefixIconConstraints: const BoxConstraints(minWidth: 90),
+            prefixIcon: Image.asset("assets/icon/flag.png"),
+          ),
+          keyboardType: TextInputType.number,
         ),
       ),
     );

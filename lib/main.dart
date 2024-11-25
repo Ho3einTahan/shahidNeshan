@@ -5,7 +5,7 @@ import 'package:shahid_neshan/src/view/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  GetItDP.setUpGetIt();
+  // GetItDP.setUpGetIt();
   runApp(const Application());
 }
 
