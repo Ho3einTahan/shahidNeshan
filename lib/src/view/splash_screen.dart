@@ -30,13 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
           tween: Tween<double>(begin: 0.0, end: 1.0),
           curve: Curves.ease,
           duration: const Duration(seconds: 4),
-          builder: (context, value, child) => Opacity(
-            opacity: value,
-            child: Image.asset(
-              'assets/images/logo.png',
-              width: Sizes.width(context),
-            ),
-          ),
+          builder: (context, value, child) => Opacity(opacity: value, child: Image.asset('assets/images/logo.png', width: Sizes.width(context))),
         ),
       ),
     );
