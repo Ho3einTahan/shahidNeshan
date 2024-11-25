@@ -27,7 +27,6 @@ class ShohadaCardWidget extends StatelessWidget {
                 bottomRight: Radius.circular(10),
                 topRight: Radius.circular(10)
               ),
-              // child: Image.asset('assets/images/shohada_image.png', fit: BoxFit.cover,))),
               child: Image.asset(shahidKashanModel.image, fit: BoxFit.cover,))),
           const SizedBox(width: 8,),
           Expanded(

@@ -18,9 +18,7 @@ class Application extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.theme,
-      home: const Directionality(
-        textDirection: TextDirection.rtl,
-        child: BottomNavigationWidget())
+      home: const BottomNavigationWidget()
     );
   }
 }
