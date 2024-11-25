@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shahid_neshan/src/view/home/data/shahid_kashan_model.dart';
 import 'package:shahid_neshan/src/view/location/data/model/location_model.dart';
 import 'package:shahid_neshan/src/view/location/presentaion/screen/location_screen.dart';
 
 class MarkerWidget extends StatelessWidget {
-  final LocationModel locationModel;
+  final ShahidKashanModel locationModel;
   final VoidCallback? onTap;
    MarkerWidget({super.key, required this.locationModel, this.onTap, });
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<LocationModel?>(
+    return ValueListenableBuilder<ShahidKashanModel?>(
       valueListenable: selected,
       builder: (context, value, child) {
         return InkWell(
