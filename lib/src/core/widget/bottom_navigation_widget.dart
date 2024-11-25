@@ -5,21 +5,18 @@ import 'package:shahid_neshan/src/view/home/presentaion/screen/list_shahid_scree
 import 'package:shahid_neshan/src/view/location/presentaion/screen/location_screen.dart';
 
 class BottomNavigationWidget extends StatefulWidget {
-  const BottomNavigationWidget({ super.key });
+  const BottomNavigationWidget({super.key});
 
   @override
   State<BottomNavigationWidget> createState() => _BottomNavigationWidgetState();
 }
 
 class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
-
-  
   int _selected = 0;
-  
-  final List<Widget> screens = const [ HomeScreen(), LocationScreen(), ListShahidScreen(needNavigationBackIcon: false,) ];
-  final List<String> titles = [ 'خانه', 'اطراف من', 'شهدای کاشان' ];
-  final List<String> icons = ['home.svg', 'local.svg', 'view-grid-list.svg'];
 
+  final List<Widget> screens = const [HomeScreen(), LocationScreen(), ListShahidScreen(needNavigationBackIcon: false)];
+  final List<String> titles = ['خانه', 'اطراف من', 'شهدای کاشان'];
+  final List<String> icons = ['home.svg', 'local.svg', 'view-grid-list.svg'];
 
   @override
   Widget build(BuildContext context) {

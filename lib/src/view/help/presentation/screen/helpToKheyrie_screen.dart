@@ -233,10 +233,7 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
       child: Container(
         width: 45,
         height: 45,
-        decoration: BoxDecoration(
-          color: CustomTheme.theme.primaryColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
+        decoration: BoxDecoration(color: CustomTheme.theme.primaryColor, borderRadius: BorderRadius.circular(12)),
         child: const Center(child: Icon(Icons.remove, color: Colors.white, size: 28)),
       ),
     );

@@ -3,8 +3,7 @@ import 'package:shahid_neshan/src/view/home/data/shahid_kashan_model.dart';
 import 'package:shahid_neshan/src/view/home/data/story_model.dart';
 import 'package:shahid_neshan/src/view/location/data/model/location_model.dart';
 
-class FakeData{
-
+class FakeData {
   //! shahid Image
   static const String bahonarImage = 'assets/images/shahid_images/bahonar.png';
   static const String farsiImage = 'assets/images/shahid_images/farsi.png';
@@ -27,24 +26,77 @@ class FakeData{
     StoryModel('شهید زجاجی', zojajiImage),
   ];
 
-  static List<String> postsImages = [ postImage1, postImage2, postImage3,postImage1, postImage2, postImage3 ];
+  static List<String> postsImages = [postImage1, postImage2, postImage3, postImage1, postImage2, postImage3];
 
   static List<ShahidKashanModel> shahidKashan = [
-    ShahidKashanModel('شهید باهنر', "عباس کریمی قهرودی سال ۱۳۳۶ هجری شمسی در «قهرود» کاشان چشم به جهان گشود. دوران ابتدایی را در این روستا به پایان رسانید و وارد هنرستان شد. بعد از اخذ دیپلم در رشته نساجی، به سربازی رفت", bahonarImage),
-    ShahidKashanModel('شهید فارسی', "عباس کریمی قهرودی سال ۱۳۳۶ هجری شمسی در «قهرود» کاشان چشم به جهان گشود. دوران ابتدایی را در این روستا به پایان رسانید و وارد هنرستان شد. بعد از اخذ دیپلم در رشته نساجی، به سربازی رفت", farsiImage),
-    ShahidKashanModel('شهید کریمی', "عباس کریمی قهرودی سال ۱۳۳۶ هجری شمسی در «قهرود» کاشان چشم به جهان گشود. دوران ابتدایی را در این روستا به پایان رسانید و وارد هنرستان شد. بعد از اخذ دیپلم در رشته نساجی، به سربازی رفت", karimiImage),
-    ShahidKashanModel('شهید معمار', "عباس کریمی قهرودی سال ۱۳۳۶ هجری شمسی در «قهرود» کاشان چشم به جهان گشود. دوران ابتدایی را در این روستا به پایان رسانید و وارد هنرستان شد. بعد از اخذ دیپلم در رشته نساجی، به سربازی رفت", memarImage),
-    ShahidKashanModel('شهید رجایی', "عباس کریمی قهرودی سال ۱۳۳۶ هجری شمسی در «قهرود» کاشان چشم به جهان گشود. دوران ابتدایی را در این روستا به پایان رسانید و وارد هنرستان شد. بعد از اخذ دیپلم در رشته نساجی، به سربازی رفت", rejaeeImage),
-    ShahidKashanModel('شهید زجاجی', "عباس کریمی قهرودی سال ۱۳۳۶ هجری شمسی در «قهرود» کاشان چشم به جهان گشود. دوران ابتدایی را در این روستا به پایان رسانید و وارد هنرستان شد. بعد از اخذ دیپلم در رشته نساجی، به سربازی رفت", zojajiImage),
+    ShahidKashanModel(
+      title: 'شهید عباس کریمی',
+      description:
+      "فرمانده لشکر ۲۷ محمد رسول‌الله که در عملیات خیبر در شلمچه به شهادت رسید.",
+      image: karimiImage,
+      age: '30 سال',
+      mahalTavalod: 'قهرود',
+      mahalShahadat: 'شلمچه',
+      vasiatNameh: 'ای مردم! راه شهدا را ادامه دهید و از انقلاب اسلامی پاسداری کنید.',
+    ),
+    ShahidKashanModel(
+      title: 'شهید حسین معمار',
+      description:
+      "یکی از شهدای کربلای ۵ که در حین هدایت نیروها به شهادت رسید.",
+      image: memarImage,
+      age: '21 سال',
+      mahalTavalod: 'کاشان',
+      mahalShahadat: 'منطقه کربلای ۵',
+      vasiatNameh: 'در برابر دشمنان ایستادگی کنید و نگذارید خون شهدا پایمال شود.',
+    ),
+    ShahidKashanModel(
+      title: 'شهید محمدجواد باهنر',
+      description:
+      "یکی از شهدای دفاع مقدس که در عملیات بدر به شهادت رسید.",
+      image: bahonarImage,
+      age: '22 سال',
+      mahalTavalod: 'کاشان',
+      mahalShahadat: 'منطقه عملیاتی بدر',
+      vasiatNameh: 'برای حفظ ارزش‌های اسلام تلاش کنید.',
+    ),
+    ShahidKashanModel(
+      title: 'شهید مهدی فارسی',
+      description:
+      "از فرماندهان جنگ که در عملیات والفجر ۸ در فاو به شهادت رسید.",
+      image: farsiImage,
+      age: '32 سال',
+      mahalTavalod: 'کاشان',
+      mahalShahadat: 'فاو',
+      vasiatNameh: 'به ولایت فقیه پایبند باشید و ارزش‌های دینی را پاس بدارید.',
+    ),
+    ShahidKashanModel(
+      title: 'شهید محمدرضا رجایی',
+      description:
+      "شهیدی که در عملیات خیبر و در شلمچه به شهادت رسید.",
+      image: rejaeeImage,
+      age: '23 سال',
+      mahalTavalod: 'قمصر',
+      mahalShahadat: 'شلمچه',
+      vasiatNameh: 'نماز را اول وقت بخوانید و در مسیر خداوند حرکت کنید.',
+    ),
+    ShahidKashanModel(
+      title: 'شهید احمد زجاجی',
+      description:
+      "یکی از شهدای عملیات فتح‌المبین که نقش مهمی در پیروزی عملیات داشت.",
+      image: zojajiImage,
+      age: '25 سال',
+      mahalTavalod: 'کاشان',
+      mahalShahadat: 'فتح‌المبین',
+      vasiatNameh: 'با حفظ وحدت، از دشمنان اسلام فاصله بگیرید.',
+    ),
   ];
-  
+
   static List<LocationModel> locationData = [
-    LocationModel(1, 'شهید باهنر', bahonarImage, const LatLng(33.966498,51.435468)),
-    LocationModel(2, 'شهید فارسی', farsiImage, const LatLng(34.010621,51.373630)),
+    LocationModel(1, 'شهید باهنر', bahonarImage, const LatLng(33.966498, 51.435468)),
+    LocationModel(2, 'شهید فارسی', farsiImage, const LatLng(34.010621, 51.373630)),
     LocationModel(3, 'شهید کریمی', karimiImage, const LatLng(33.99083994801115, 51.40648841857911)),
     LocationModel(4, 'شهید معمار', memarImage, const LatLng(33.96386430820156, 51.40125274658204)),
     LocationModel(5, 'شهید رجایی', rejaeeImage, const LatLng(33.98038730820156, 51.451107274658204)),
     LocationModel(6, 'شهید زجاجی', zojajiImage, const LatLng(33.98283430820156, 51.422812274658204)),
   ];
-  
 }
