@@ -24,8 +24,8 @@ dependencies:
   story: ^1.1.0
   geolocator: ^11.1.0
   flutter_svg: ^2.0.10
-  win32: ^5.0.8
-  webview_flutter: ^4.4.4
+  win32: ^5.0.9
+  webview_flutter: ^4.5.0
   animated_snack_bar: ^0.4.0
 
 dev_dependencies:
