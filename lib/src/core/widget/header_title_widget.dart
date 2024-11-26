@@ -11,7 +11,7 @@ Widget headerTitleWidget(BuildContext context, bool needMore, double? width, Str
     children: [
       Row(
         children: [
-          Image.asset('assets/icon/appbar_icon.png', ),
+          FittedBox(child: Image.asset('assets/icon/appbar_icon2.png', width: 18, height: 28)),
           const SizedBox(width: 8,),
           Text(title, style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),)
         ],

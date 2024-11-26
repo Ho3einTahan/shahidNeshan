@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shahid_neshan/src/core/constans/sizes.dart';
 import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
 import 'package:shahid_neshan/src/core/fake_data.dart';
+import 'package:shahid_neshan/src/core/utils/check_internet.dart';
+import 'package:shahid_neshan/src/core/utils/error_snackbar.dart';
 import 'package:shahid_neshan/src/core/widget/header_title_widget.dart';
 import 'package:shahid_neshan/src/view/help/presentation/screen/helpToKheyrie_screen.dart';
 import 'package:shahid_neshan/src/view/home/presentaion/screen/list_shahid_screen.dart';
@@ -37,43 +39,18 @@ class HomeScreen extends StatelessWidget {
                 height: 130,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: FakeData.fakeStoryModelData.length,
+                  itemCount: FakeData.shahidKashan.length,
                   padding: const EdgeInsets.only(right: 15),
-                  itemBuilder: (context, index) => StoryWidget(storyModel: FakeData.fakeStoryModelData[index],)),
+                  itemBuilder: (context, index) => StoryWidget(shahidKashanModel: FakeData.shahidKashan[index], comesIndex: index)),
               ),
               InkWell(
-                onTap: ()=> context.navigate(const HelpToKheyrieScreen()),
-                child: Container(
-                  width: Sizes.width(context),
-                  height: 120,
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage('assets/images/help.png'),
-                      fit: BoxFit.cover
-                    ),
-                    boxShadow: const [
-                      BoxShadow(color: Colors.black),
-                    ],
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(image: AssetImage('assets/images/shadow.png'), fit: BoxFit.cover),
-                      borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text('کمک به خیریه به نیت شهدا', style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white, fontSize: 14), )),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-              InkWell(
-                onTap: ()=> context.navigate(const PanoramaScreen()),
+                onTap: ()async{
+                  final hasInternet = await checkInternetConnection();
+                  if(hasInternet)
+                    context.navigate(const PanoramaScreen());
+                  else
+                    showErrorSnackBar(context, "لطفا اینترنت خود را روشن کنید");
+                },
                 child: Container(
                   width: Sizes.width(context),
                   height: 120,
@@ -129,6 +106,38 @@ class HomeScreen extends StatelessWidget {
                   )
                 ],
               ),
+              const SizedBox(height: 24),
+              InkWell(
+                onTap: ()=> context.navigate(const HelpToKheyrieScreen()),
+                child: Container(
+                  width: Sizes.width(context),
+                  height: 120,
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/help.png'),
+                      fit: BoxFit.cover
+                    ),
+                    boxShadow: const [
+                      BoxShadow(color: Colors.black),
+                    ],
+                    borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: const DecorationImage(image: AssetImage('assets/images/shadow.png'), fit: BoxFit.cover),
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Text('کمک به خیریه به نیت شهدا', style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white, fontSize: 14), )),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -142,7 +151,12 @@ class HomeScreen extends StatelessWidget {
                     itemCount: 2,
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) =>  CommentCardWidget(images: index == 0 ? [] : FakeData.postsImages,)
+                    itemBuilder: (context, index) =>  CommentCardWidget(
+                      images: index == 0 ? [] : FakeData.postsImages, 
+                      profileName : index == 0 ? 'احمد حسینی' : 'فاطمه احمدی',
+                      profileImage: index == 0 ? 'assets/images/man.jpeg' : 'assets/images/woman.png',
+                      neat: index == 0 ? 'شهید حسین الماسی' : 'شهید مهدی فارسی',
+                      profileDes: index == 0 ? des1 : des2)
                   )
                 ],
               ),
@@ -150,10 +164,10 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: (){},
-          child: SvgPicture.asset('assets/icon/floatin.svg'),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: (){},
+        //   child: SvgPicture.asset('assets/icon/floatin.svg'),
+        // ),
       ),
     );
   }

@@ -21,6 +21,14 @@ class CustomeTextFieldWidget extends StatelessWidget {
             borderSide: const BorderSide(color: Color(0xffD5D5D5), width: 1),
             borderRadius: BorderRadius.circular(10),
           ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Color(0xffD5D5D5), width: 1),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Color(0xffD5D5D5), width: 1),
+            borderRadius: BorderRadius.circular(10),
+          ),
           hintText: 'جسجوی شهید...',
           hintStyle: Theme.of(context).textTheme.displayMedium!.copyWith(color: const Color(0xffBFBFBF), fontSize: 16),
           prefixIcon: Container(

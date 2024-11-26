@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/core/utils/error_snackbar.dart';
 import 'package:shahid_neshan/src/core/widget/bottom_navigation_widget.dart';
 import '../../../../config/theme.dart';
 import '../widget/tools_methode.dart';
@@ -50,7 +51,14 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                     borderRadius: BorderRadius.circular(10),
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(backgroundColor: CustomTheme.theme.primaryColor,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)), minimumSize: const Size(double.infinity, 48)),
-                        onPressed: () => context.navigateReplacement(const BottomNavigationWidget()),
+                        onPressed: () {
+                          if(otpController.text.isEmpty || otpController.text.length < 6){
+                            showErrorSnackBar(context, otpController.text.isEmpty ? 'لطفا کد تایید را وارد کنید' : 'کد تایید نمی تواند کمتر از 6 رقم باشد');
+                          }
+                          else {
+                            context.navigate(const BottomNavigationWidget());
+                          }
+                        },
                         child:  Text("ورود", style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.white))),
                   ),
                   Padding(
@@ -87,15 +95,16 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
             readOnly: true,
             textAlignVertical: TextAlignVertical.bottom,
             style: const TextStyle(fontSize: 20),
-            decoration: const InputDecoration(
+            decoration:  InputDecoration(
               hintText: 'کد تایید',
-              hintStyle: TextStyle(fontSize: 16, color: Color(0xffBFBFBF)),
+              hintStyle:const TextStyle(fontSize: 16, color: Color(0xffBFBFBF)),
               hintTextDirection: TextDirection.rtl,
-              border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-              enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-              focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
-              contentPadding: EdgeInsets.only(bottom: 10, right: 10),
-          
+              border:const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+              enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(color: Color(0xffD5D5D5))),
+              focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+              contentPadding:const EdgeInsets.only(bottom: 10, right: 10),
             ),
             keyboardType: TextInputType.number,
           ),

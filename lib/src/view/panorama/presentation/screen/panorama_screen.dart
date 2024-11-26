@@ -9,9 +9,10 @@ class PanoramaScreen extends StatefulWidget {
   @override
   State<PanoramaScreen> createState() => _PanoramaScreenState();
 }
+
 class _PanoramaScreenState extends State<PanoramaScreen> {
   late WebViewController webViewController;
-  
+
   @override
   void initState() {
     super.initState();
@@ -21,22 +22,25 @@ class _PanoramaScreenState extends State<PanoramaScreen> {
         NavigationDelegate(
           onPageStarted: (String url) {},
           onPageFinished: (String url) {},
-          onHttpError: (HttpResponseError error) {},
           onWebResourceError: (WebResourceError error) {},
         ),
       )
       ..loadRequest(Uri.parse('https://360.kimiasport.com/golzar/'));
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: CustomAppbarWidget(title: 'نمای ۳۶۰درجه گلزار شهدای کاشان', action: [], leadingWidth: Sizes.width(context)*0.8,fontSize: 16,),
+        appBar: CustomAppbarWidget(
+          title: 'نمای ۳۶۰درجه گلزار شهدای کاشان',
+          action: [],
+          leadingWidth: Sizes.width(context) * 0.8,
+          fontSize: 16,
+        ),
         body: WebViewWidget(controller: webViewController),
       ),
     );
   }
-
 }

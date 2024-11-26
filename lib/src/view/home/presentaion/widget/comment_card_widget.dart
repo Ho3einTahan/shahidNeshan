@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/core/widget/header_title_widget.dart';
+import 'package:shahid_neshan/src/core/widget/show_image_widget.dart';
 
 class CommentCardWidget extends StatefulWidget {
   final List<String> images;
-
-  const CommentCardWidget({super.key, required this.images});
+  final String profileImage;
+  final String profileName;
+  final String neat;
+  final String profileDes;
+  const CommentCardWidget({super.key, required this.images, required this.profileImage, required this.profileName, required this.neat, required this.profileDes});
 
   @override
   State<CommentCardWidget> createState() => _CommentCardWidgetState();
@@ -30,8 +36,8 @@ class _CommentCardWidgetState extends State<CommentCardWidget> {
             children: [
               Row(
                 children: [
-                  const CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/woman.png'),
+                   CircleAvatar(
+                    backgroundImage: AssetImage(widget.profileImage),
                   ),
                   const SizedBox(
                     width: 8,
@@ -40,7 +46,7 @@ class _CommentCardWidgetState extends State<CommentCardWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'فاطمه احمدی',
+                        widget.profileName,
                         style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 14),
                       ),
                       Text.rich(TextSpan(
@@ -49,7 +55,7 @@ class _CommentCardWidgetState extends State<CommentCardWidget> {
                               ),
                           children: [
                             const TextSpan(text: "به نیت "),
-                            TextSpan(text: "شهید صیاد شیرازی", style: TextStyle(color: Theme.of(context).primaryColor)),
+                            TextSpan(text: widget.neat, style: TextStyle(color: Theme.of(context).primaryColor)),
                           ]))
                     ],
                   )
@@ -69,15 +75,16 @@ class _CommentCardWidgetState extends State<CommentCardWidget> {
           const SizedBox(
             height: 8
           ),
-          Text.rich(TextSpan(style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14), children: const [
-            TextSpan(text: "امروز رفتم سر مزار"),
-            TextSpan(text: "#شهید_صیاد_شیرازی ... ", style: TextStyle(color: Color(0xff3981EC))),
-            TextSpan(text: "حال و هوای خیلی خوبی داشت"),
-            TextSpan(text: "سر راه به نیت شهید شیرازی صدقه دادم."),
-            // TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازی")
-          ])),
-          widget.images.isNotEmpty
-              ? Container(
+          // Text.rich(TextSpan(style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14), children: const [
+          //   TextSpan(text: "امروز رفتم سر مزار"),
+          //   TextSpan(text: "#شهید_صیاد_شیرازی ... ", style: TextStyle(color: Color(0xff3981EC))),
+          //   TextSpan(text: "حال و هوای خیلی خوبی داشت"),
+          //   TextSpan(text: "سر راه به نیت شهید شیرازی صدقه دادم."),
+          //   // TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازی")
+          // ])),
+          Text(widget.profileDes, style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14),),
+          if(widget.images.isNotEmpty)
+              Container(
                   margin: const EdgeInsets.only(top: 8),
                   height: 100,
                   width: double.infinity,
@@ -86,18 +93,12 @@ class _CommentCardWidgetState extends State<CommentCardWidget> {
                       itemCount: widget.images.length,
                       itemBuilder: (context, index) => Container(
                             margin: const EdgeInsets.only(left: 12),
-                            child: ClipRRect(borderRadius: BorderRadius.circular(6), child: Image.asset(widget.images[index])),
+                            child: InkWell(
+                              onTap: ()=> context.navigate(ShowImageWidget(image: widget.images[index], title: '')),
+                              child: ClipRRect(borderRadius: BorderRadius.circular(6), child: Image.asset(widget.images[index]))),
                           )),
-                )
-              : Container(
-                  height: 48,
-                  width: double.infinity,
-                  alignment: Alignment.centerRight,
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
-                    "مشاهده بیشتر",
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).primaryColor),
-                  )),
+                ),
+              
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shahid_neshan/src/config/theme.dart';
+import 'package:shahid_neshan/src/core/extenstion/navigation_extension.dart';
+import 'package:shahid_neshan/src/core/fake_data.dart';
+import 'package:shahid_neshan/src/core/widget/header_title_widget.dart';
+import 'package:shahid_neshan/src/core/widget/show_image_widget.dart';
 
 import '../../../../core/constans/sizes.dart';
 import '../../../../core/widget/custom_appbar_widget.dart';
@@ -29,9 +34,13 @@ class ShahidInfoScreen extends StatefulWidget {
 }
 
 class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
-  final List<bool> isLiked = List.generate(3, (index) => false);
-  final List<bool> isSaved = List.generate(3, (index) => false);
+  final List<bool> isLiked = List.generate(2, (index) => false);
+  final List<bool> isSaved = List.generate(2, (index) => false);
   bool isLikedAppbar = false;
+
+
+  bool isLike = false;
+  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +51,14 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
           title: widget.shahidName,
           action: [
             IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.share, color: Colors.black),
+              onPressed: (){},
+              icon: SvgPicture.asset('assets/icon/share-one.svg', width: 24, height: 24),
             ),
             IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite_border, color: Colors.black),
+              onPressed: () => setState(()=> isLike = !isLike),
+              icon: SvgPicture.asset(isLike ? 'assets/icon/save_button.svg' : 'assets/icon/like.svg', width: 24, height: 24,),
             ),
+            const SizedBox(width: 15,)
           ],
           leadingWidth: Sizes.width(context) * 0.7,
           needNavigationBackIcon: true,
@@ -64,11 +74,14 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
                   child: Center(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        widget.image,
-                        height: 320,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
+                      child: InkWell(
+                        onTap: ()=> context.navigate(ShowImageWidget(image: widget.image, title: widget.shahidName)),
+                        child: Image.asset(
+                          widget.image,
+                          height: 320,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
@@ -112,7 +125,7 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
                       Image.asset("assets/icon/appbar_icon.png"),
                       const SizedBox(width: 4),
                       Text(
-                        'خلاصه زندگی نامه',
+                        'خلاصه وصیت نامه',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),
                       ),
                     ],
@@ -140,9 +153,9 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   margin: const EdgeInsets.only(left: 20),
                   child: ListView.builder(
-                    itemCount: 3,
+                    itemCount: 2,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => _buildCommentBanner(index),
+                    itemBuilder: (context, index) => _buildCommentBanner( index, widget.shahidName ),
                   ),
                 ),
               ],
@@ -176,9 +189,10 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
     );
   }
 
-  Widget _buildCommentBanner(int index) {
+  Widget _buildCommentBanner(int index,String shahidName) {
     return Container(
       width: MediaQuery.of(context).size.width - 40,
+      padding: const EdgeInsets.only(top: 10, left: 8, right: 8),
       margin: const EdgeInsets.only(left: 10, right: 20, bottom: 20, top: 12),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -189,14 +203,14 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
         children: [
           Row(
             children: [
-              const SizedBox(width: 10),
-              Image.asset('assets/images/woman.png'),
+              CircleAvatar(
+                backgroundImage: AssetImage(index == 0 ? 'assets/images/man.jpeg' : 'assets/images/woman.png'), ),
               const SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'فاطمه احمدی',
+                    index == 0 ? 'احمد حسینی' : 'فاطمه احمدی',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 14),
                   ),
                   Text.rich(TextSpan(
@@ -211,20 +225,8 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
               )
             ],
           ),
-          Text.rich(TextSpan(style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14), children: [
-            const TextSpan(text: "امروز رفتم سر مزار"),
-            TextSpan(text: "#${widget.shahidName} ... ", style: const TextStyle(color: Color(0xff3981EC))),
-            const TextSpan(text: "حال و هوای خیلی خوبی داشت"),
-            TextSpan(text: "سر راه به نیت ${widget.shahidName} صدقه دادم."),
-            // const TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازی")
-          ])),
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              'مشاهده بیشتر',
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14, color: CustomTheme.theme.primaryColor),
-            ),
-          ),
+          SizedBox(height: 3, ),
+          Text(index == 0 ? des1 : des2,style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14)),
           Row(
             children: [
               IconButton(

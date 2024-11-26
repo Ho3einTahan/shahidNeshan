@@ -12,7 +12,8 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
   final bool? needNavigationBackIcon;
   final double? fontSize;
 
-  const CustomAppbarWidget({super.key, required this.title, required this.action, required this.leadingWidth, this.backgroundColor, this.iconColor, this.titleColor, this.needNavigationBackIcon, this.fontSize});
+  const CustomAppbarWidget(
+      {super.key, required this.title, required this.action, required this.leadingWidth, this.backgroundColor, this.iconColor, this.titleColor, this.needNavigationBackIcon, this.fontSize});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
       child: AppBar(
         backgroundColor: backgroundColor,
         toolbarHeight: 70,
+        elevation: 0,
         foregroundColor: Colors.blue,
         surfaceTintColor: Colors.transparent,
         shadowColor: backgroundColor,
@@ -27,9 +29,9 @@ class CustomAppbarWidget extends StatelessWidget implements PreferredSizeWidget 
         leading: Row(
           children: [
             const SizedBox(width: 20),
-            if (needNavigationBackIcon ?? true) InkWell(onTap: () => context.navigateBack(), child: SvgPicture.asset('assets/icon/arrow-right.svg', color: iconColor)),
+            if (needNavigationBackIcon ?? true) InkWell(onTap: () => context.navigateBack(), child: SvgPicture.asset('assets/icon/arrow-right.svg', color: iconColor,)),
             const SizedBox(width: 8),
-            Text(title, style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w700, color: titleColor, ))
+            Text(title, style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w700, color: titleColor, fontSize: fontSize))
           ],
         ),
         actions: action,

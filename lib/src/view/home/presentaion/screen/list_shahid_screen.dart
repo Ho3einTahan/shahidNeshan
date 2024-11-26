@@ -24,6 +24,7 @@ class _ListShahidScreenState extends State<ListShahidScreen> {
       appBar: CustomAppbarWidget(
         title: "شهدای کاشان",
         action: [],
+        fontSize: 20,
         leadingWidth: Sizes.width(context) * 0.5,
         needNavigationBackIcon: widget.needNavigationBackIcon,
       ),
@@ -35,7 +36,6 @@ class _ListShahidScreenState extends State<ListShahidScreen> {
             child: ListView.builder(
               itemCount: FakeData.shahidKashan.length,
               shrinkWrap: true,
-              physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) => Container(
                   margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
                   height: 125,

@@ -90,8 +90,10 @@ class LoginRegisterScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 19),
           inputFormatters: [ PersianNumberInputFormatter() ],
           decoration: InputDecoration(
-            border: const OutlineInputBorder(),
-            enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+            border:  const OutlineInputBorder(),
+            enabledBorder:  OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(color: Color(0xffD5D5D5))),
             focusedBorder: const OutlineInputBorder(),
             prefixIconConstraints: const BoxConstraints(minWidth: 90),
             prefixIcon: Image.asset("assets/icon/flag.png"),

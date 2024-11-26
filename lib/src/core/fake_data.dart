@@ -5,11 +5,11 @@ import 'package:shahid_neshan/src/view/location/data/model/location_model.dart';
 
 class FakeData {
   //! shahid Image
-  static const String bahonarImage = 'assets/images/shahid_images/bahonar.png';
+  static const String almasiImage = 'assets/images/shahid_images/almasi.png';
   static const String farsiImage = 'assets/images/shahid_images/farsi.png';
   static const String karimiImage = 'assets/images/shahid_images/karimi.png';
   static const String memarImage = 'assets/images/shahid_images/memar.png';
-  static const String rejaeeImage = 'assets/images/shahid_images/rejaee.png';
+  static const String hasanZadeImage = 'assets/images/shahid_images/hasanzade.png';
   static const String zojajiImage = 'assets/images/shahid_images/zojaji.png';
 
   //! posts Image
@@ -18,11 +18,11 @@ class FakeData {
   static const String postImage3 = 'assets/images/posts/post_image3.png';
 
   static List<StoryModel> fakeStoryModelData = [
-    StoryModel('شهید باهنر', bahonarImage),
+    StoryModel('شهید حسین الماسی', almasiImage),
     StoryModel('شهید فارسی', farsiImage),
     StoryModel('شهید کریمی', karimiImage),
     StoryModel('شهید معمار', memarImage),
-    StoryModel('شهید رجایی', rejaeeImage),
+    StoryModel('شهید مصطفی سید حسن زاده', hasanZadeImage),
     StoryModel('شهید زجاجی', zojajiImage),
   ];
 
@@ -35,81 +35,83 @@ class FakeData {
       description:
       "فرمانده لشکر ۲۷ محمد رسول‌الله که در عملیات خیبر در شلمچه به شهادت رسید.",
       image: karimiImage,
-      age: '30 سال',
+      age: '۳۰ سال',
       mahalTavalod: 'قهرود',
       mahalShahadat: 'شلمچه',
       vasiatNameh: 'ای مردم! راه شهدا را ادامه دهید و از انقلاب اسلامی پاسداری کنید.',
-      latLng: const LatLng(33.966498, 51.435468)
+      latLng: const LatLng(33.966498, 51.435468),
     ),
     ShahidKashanModel(
       id: 2,
-      title: 'شهید حسین معمار',
+      title: 'شهید علی معمار',
       description:
       "یکی از شهدای کربلای ۵ که در حین هدایت نیروها به شهادت رسید.",
       image: memarImage,
-      age: '21 سال',
+      age: '۲۱ سال', // عدد فارسی
       mahalTavalod: 'کاشان',
       mahalShahadat: 'منطقه کربلای ۵',
       vasiatNameh: 'در برابر دشمنان ایستادگی کنید و نگذارید خون شهدا پایمال شود.',
-      latLng: const LatLng(34.010621, 51.373630)
+      latLng: const LatLng(34.010621, 51.373630),
     ),
     ShahidKashanModel(
       id: 3,
-      title: 'شهید محمدجواد باهنر',
-      description:
-      "یکی از شهدای دفاع مقدس که در عملیات بدر به شهادت رسید.",
-      image: bahonarImage,
-      age: '22 سال',
+      title: 'شهید حسین الماسی',
+      description: "شهید حسین الماسی یکی از شهدای دفاع مقدس از شهرستان کاشان است که در عملیات‌های مختلف جنگ تحمیلی حضور داشت.",
+      image: almasiImage,  // تصویر شهید باید در اینجا قرار گیرد.
+      age: '۲۳ سال', // برای تکمیل سن، از یک سن معمولی استفاده می‌کنیم. (در صورت داشتن اطلاعات دقیق‌تر آن را اصلاح کنید)
       mahalTavalod: 'کاشان',
-      mahalShahadat: 'منطقه عملیاتی بدر',
-      vasiatNameh: 'برای حفظ ارزش‌های اسلام تلاش کنید.',
-      latLng: const LatLng(33.99083994801115, 51.40648841857911)
+      mahalShahadat: 'عملیات کربلای ۴', // در اینجا محل شهادت تخمینی است، لطفاً با اطلاعات دقیق اصلاح کنید.
+      vasiatNameh: 'از جوانان می‌خواهم که همیشه به انقلاب اسلامی و ارزش‌های آن وفادار بمانند.',
+      latLng: const LatLng(33.99083994801115, 51.40648841857911),
     ),
     ShahidKashanModel(
       id: 4,
-      title: 'شهید مهدی فارسی',
+      title: 'شهید علی فارسی',
       description:
       "از فرماندهان جنگ که در عملیات والفجر ۸ در فاو به شهادت رسید.",
       image: farsiImage,
-      age: '32 سال',
+      age: '۳۲ سال', // عدد فارسی
       mahalTavalod: 'کاشان',
       mahalShahadat: 'فاو',
       vasiatNameh: 'به ولایت فقیه پایبند باشید و ارزش‌های دینی را پاس بدارید.',
-      latLng: const LatLng(33.96386430820156, 51.40125274658204)
+      latLng: const LatLng(33.96386430820156, 51.40125274658204),
     ),
     ShahidKashanModel(
       id: 5,
-      title: 'شهید محمدرضا رجایی',
-      description:
-      "شهیدی که در عملیات خیبر و در شلمچه به شهادت رسید.",
-      image: rejaeeImage,
-      age: '23 سال',
+      title: 'شهید مصطفی سید حسن زاده',
+      description: "شهید سیدمصطفی سیدحسن زاده اول فروردین 1340 در کاشان به دنیا آمد در 5 سالگی به عنوان شاگرد آزاد در مدرسه ابتدائی مدرس کاشان پذیرفته شد و خرداد همان سال بانمرات عالی قبول شد و به تحصیل ادامه داد. از همان بچگی عاشق امام حسین (ع) بود و در دسته های سینه زنی و هیئت های مذهبی شرکت می کرد .همیشه آرزو می کرد کاش خانه بزرگتری داشتند",
+      image: hasanZadeImage,
+      age: '۲۳ سال', // عدد فارسی
       mahalTavalod: 'قمصر',
       mahalShahadat: 'شلمچه',
-      vasiatNameh: 'نماز را اول وقت بخوانید و در مسیر خداوند حرکت کنید.',
-      latLng: const LatLng(33.98038730820156, 51.451107274658204)
+      vasiatNameh: '',
+      latLng: const LatLng(33.98038730820156, 51.451107274658204),
     ),
     ShahidKashanModel(
       id: 6,
-      title: 'شهید احمد زجاجی',
+      title: 'شهید اکبر زجاجی',
       description:
       "یکی از شهدای عملیات فتح‌المبین که نقش مهمی در پیروزی عملیات داشت.",
       image: zojajiImage,
-      age: '25 سال',
+      age: '۲۵ سال', // عدد فارسی
       mahalTavalod: 'کاشان',
       mahalShahadat: 'فتح‌المبین',
       vasiatNameh: 'با حفظ وحدت، از دشمنان اسلام فاصله بگیرید.',
-      latLng: const LatLng(33.98283430820156, 51.422812274658204)
+      latLng: const LatLng(33.98283430820156, 51.422812274658204),
     ),
   ];
 
   static List<LocationModel> locationData = [
-    LocationModel(1, 'شهید باهنر', bahonarImage, const LatLng(33.966498, 51.435468)),
+    LocationModel(1, 'شهید حسن زاده', hasanZadeImage, const LatLng(33.966498, 51.435468)),
     LocationModel(2, 'شهید فارسی', farsiImage,   const LatLng(34.010621, 51.373630)),
     LocationModel(3, 'شهید کریمی', karimiImage,  const LatLng(33.99083994801115, 51.40648841857911)),
     LocationModel(4, 'شهید معمار', memarImage,   const LatLng(33.96386430820156, 51.40125274658204)),
-    LocationModel(5, 'شهید رجایی', rejaeeImage,  const LatLng(33.98038730820156, 51.451107274658204)),
+    LocationModel(5, 'شهید الماسی', almasiImage,  const LatLng(33.98038730820156, 51.451107274658204)),
     LocationModel(6, 'شهید زجاجی', zojajiImage,  const LatLng(33.98283430820156, 51.422812274658204)),
   ];
 
 }
+
+
+const des1 = "امشب به مزار شهید رفتم. وقتی جلوی سنگ قبرش ایستادم، انگار همه چیز به سکوت فرو رفته بود. با خودم فکر کردم که چطور یک جوان در اوج زندگی‌اش از همه چیز گذشت و جانش را فدای خاک وطن کرد. در آن لحظات، تنها چیزی که احساس کردم آرامش بود";
+const des2 = "به یاد تمامی شهدا، امروز بیشتر از همیشه به ارزش‌های انسانی و میهنی پی بردم. هرگز نمی‌توانیم زحمات و فداکاری‌های آن‌ها را فراموش کنیم. امیدوارم که همیشه در مسیر نیکوکارانه این بزرگواران قدم برداریم";
