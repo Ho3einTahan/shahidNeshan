@@ -23,7 +23,7 @@ class StoryScreen extends StatelessWidget {
                 children: <Widget>[
                   Positioned.fill(child: Image.asset(image, fit: BoxFit.cover)),
                   Positioned.fill(child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12), child: Container(color: Colors.black.withOpacity(0.2)))),
-                  Positioned.fill(child: Image.asset(image)),
+                  Positioned.fill(child: Image.asset(image, fit: BoxFit.fitWidth)),
                 ],
               );
             },
@@ -45,7 +45,11 @@ class StoryScreen extends StatelessWidget {
                 const Spacer(),
                 Text(shahidName, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14, color: Colors.white)),
                 const SizedBox(width: 12),
-                Image.asset(image),
+                Container(
+                    width: 44,
+                    height: 44,
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
+                    child: ClipRRect(borderRadius: BorderRadius.circular(32), child: Image.asset(image, width: 44, height: 44))),
               ],
             ),
           ),

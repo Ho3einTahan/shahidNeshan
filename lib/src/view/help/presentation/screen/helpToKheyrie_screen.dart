@@ -32,12 +32,19 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
               IconButton(onPressed: () => context.navigateBack(), icon: const Icon(Icons.arrow_forward)),
               Expanded(
                   child: Text(
-                'کمک به خیریه به نیت شهدا',
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: MediaQuery.of(context).size.width > 360 ? 20 : 16),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
-              )),
+                    'کمک به خیریه به نیت شهدا',
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontSize: MediaQuery
+                        .of(context)
+                        .size
+                        .width > 360 ? 20 : 16),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                  )),
               IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.share, color: Colors.black),
@@ -61,7 +68,11 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text('انتخاب خیریه', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16)),
+                  Text('انتخاب خیریه', style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontSize: 16)),
                   const SizedBox(width: 4),
                   Image.asset("assets/icon/appbar_icon.png"),
                 ],
@@ -82,7 +93,11 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text('مبلغ کمک', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16)),
+                  Text('مبلغ کمک', style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontSize: 16)),
                   const SizedBox(width: 4),
                   Image.asset("assets/icon/appbar_icon.png"),
                 ],
@@ -123,7 +138,11 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text('به نیت شهید', style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16)),
+                  Text('به نیت شهید', style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontSize: 16)),
                   const SizedBox(width: 4),
                   Image.asset("assets/icon/appbar_icon.png"),
                 ],
@@ -188,7 +207,11 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
               child: Text(
                 kheyrieName,
                 textAlign: TextAlign.end,
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14),
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(fontSize: 14),
               ),
             ),
           ],
@@ -217,7 +240,11 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
           child: Text(
             '$price تومان',
             textDirection: TextDirection.rtl,
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14, color: Colors.black),
+            style: Theme
+                .of(context)
+                .textTheme
+                .bodyMedium!
+                .copyWith(fontSize: 14, color: Colors.black),
           ),
         ),
       ),
@@ -271,7 +298,11 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: Row(
         children: [
-          Expanded(flex: 2, child: Text(shahidName, style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14), textAlign: TextAlign.right)),
+          Expanded(flex: 2, child: Text(shahidName, style: Theme
+              .of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(fontSize: 14), textAlign: TextAlign.right)),
           const SizedBox(width: 3),
           Expanded(
             flex: 1,
@@ -291,7 +322,11 @@ class _HelpToKheyrieScreenState extends State<HelpToKheyrieScreen> {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(color: CustomTheme.theme.primaryColor, borderRadius: BorderRadius.circular(10)),
-      child: Center(child: Text('کمک به خیریه', style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 16, color: Colors.white))),
+      child: Center(child: Text('کمک به خیریه', style: Theme
+          .of(context)
+          .textTheme
+          .bodyMedium!
+          .copyWith(fontSize: 16, color: Colors.white))),
     );
   }
 }
