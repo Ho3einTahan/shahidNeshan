@@ -74,7 +74,7 @@ class _CommentCardWidgetState extends State<CommentCardWidget> {
             TextSpan(text: "#شهید_صیاد_شیرازی ... ", style: TextStyle(color: Color(0xff3981EC))),
             TextSpan(text: "حال و هوای خیلی خوبی داشت"),
             TextSpan(text: "سر راه به نیت شهید شیرازی صدقه دادم."),
-            TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازی")
+            // TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازی")
           ])),
           widget.images.isNotEmpty
               ? Container(

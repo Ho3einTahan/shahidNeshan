@@ -216,7 +216,7 @@ class _ShahidInfoScreenState extends State<ShahidInfoScreen> {
             TextSpan(text: "#${widget.shahidName} ... ", style: const TextStyle(color: Color(0xff3981EC))),
             const TextSpan(text: "حال و هوای خیلی خوبی داشت"),
             TextSpan(text: "سر راه به نیت ${widget.shahidName} صدقه دادم."),
-            const TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازی")
+            // const TextSpan(text: " شیرازی صدقه دادم. امروز رفتم سر مزار شهید صیاد شیرازی")
           ])),
           TextButton(
             onPressed: () {},
