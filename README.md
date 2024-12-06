@@ -23,7 +23,6 @@
 </table>
 
 
-# DEVELOPED BY
-### <a href="https://github.com/Ho3einTahan">Ho3einTahan</a>
+## DEVELOPED BY : <a href="https://github.com/Ho3einTahan">Ho3einTahan</a>
 
 ## Thanks you for Watching
