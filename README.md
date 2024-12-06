@@ -5,19 +5,13 @@
 ### تصاویر
 
 <image src="Sreens-Readme/screen1.png" height="250px">
-<br>
 <image src="Sreens-Readme/screen2.png" height="250px">
-<br>
 <image src="Sreens-Readme/screen3.png" height="250px">
-<br>
 <image src="Sreens-Readme/screen4.png" height="250px">
 <br>
 <image src="Sreens-Readme/screen5.png" height="250px">
-<br>
 <image src="Sreens-Readme/screen6.png" height="250px">
-<br>
 <image src="Sreens-Readme/screen7.png" height="250px">
-<br>
 <image src="Sreens-Readme/screen8.png" height="250px">
 
 
