@@ -6,19 +6,18 @@
 
 <table>
   <tr>
-    <td><image src="Sreens-Readme/screen1.png" height="250px" width="130px"></td>
-    <td><image src="Sreens-Readme/screen2.png" height="250px" width="130px"></td>
-    <td><image src="Sreens-Readme/screen3.png" height="250px" width="130px"></td>
-    <td><image src="Sreens-Readme/screen4.png" height="250px" width="130px"></td>
+    <td><image src="Sreens-Readme/screen1.png" height="250px" width="150px"></td>
+    <td><image src="Sreens-Readme/screen2.png" height="250px" width="150px"></td>
+    <td><image src="Sreens-Readme/screen3.png" height="250px" width="150px"></td>
+    <td><image src="Sreens-Readme/screen4.png" height="250px" width="150px"></td>
   </tr>
 </table>
-<br>
 <table>
   <tr>
-    <td><img src="Sreens-Readme/screen5.png" height="250px" width="130px"></td>
-    <td><img src="Sreens-Readme/screen6.png" height="250px" width="130px"></td>
-    <td><img src="Sreens-Readme/screen7.png" height="250px" width="130px"></td>
-    <td><img src="Sreens-Readme/screen8.png" height="250px" width="130px"></td>
+    <td><img src="Sreens-Readme/screen5.png" height="250px" width="150px"></td>
+    <td><img src="Sreens-Readme/screen6.png" height="250px" width="150px"></td>
+    <td><img src="Sreens-Readme/screen7.png" height="250px" width="150px"></td>
+    <td><img src="Sreens-Readme/screen8.png" height="250px" width="150px"></td>
   </tr>
 </table>
 
